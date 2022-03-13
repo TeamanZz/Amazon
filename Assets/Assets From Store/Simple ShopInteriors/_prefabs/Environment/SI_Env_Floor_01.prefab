@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 457948}
   - component: {fileID: 3341710}
   - component: {fileID: 2340626}
+  - component: {fileID: -3166236630404417665}
   m_Layer: 0
   m_Name: SI_Env_Floor_01
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-3166236630404417665
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c6ef12e1d8851f44c810a341b044a064, type: 3}

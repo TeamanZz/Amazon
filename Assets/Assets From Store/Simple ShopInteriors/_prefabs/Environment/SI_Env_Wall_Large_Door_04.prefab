@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 434126}
   - component: {fileID: 3320268}
   - component: {fileID: 2364598}
+  - component: {fileID: -8861035799761654214}
   m_Layer: 0
   m_Name: SI_Env_Wall_Large_Door_04
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-8861035799761654214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: eef68e8ca2569a94d8ab65f58b66ba51, type: 3}

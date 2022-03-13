@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 470894}
   - component: {fileID: 3337174}
   - component: {fileID: 2365276}
+  - component: {fileID: 5718511519195677760}
   m_Layer: 0
   m_Name: SI_Env_Wall_CornerBlock_large
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5718511519195677760
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 79cbb95f26e336240b36f4976176110a, type: 3}
