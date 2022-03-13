@@ -836,7 +836,7 @@ Transform:
   m_GameObject: {fileID: 4677712207377868569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0060932934, y: 0.5, z: -0.19471484}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 3160384309734078467}
   - {fileID: 8367441806155163308}
@@ -904,7 +904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274d8a13a0221a74e9b6df42614ecdf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRaft: {fileID: 0}
   speed: 5
   floatingJoystick: {fileID: 0}
   playerRB: {fileID: 0}
