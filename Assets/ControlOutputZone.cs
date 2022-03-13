@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class ControlOutputZone : MonoBehaviour
 {
+    [Header("Passive settings")]
     public Transform target;
     public float distanceToCentr = 0.5f;
+
+    [Header("Active settings")]
+    public bool zoneIsActive = false;
     public bool targetInPlace = false;
 
-    Color currentColor;
+    public Color currentColor;
     [Header("View settings")]
     public Image centrPoint;
 
@@ -23,6 +27,14 @@ public class ControlOutputZone : MonoBehaviour
         Send
     }
 
+    public ZoneType currentZoneType;
+    public enum ZoneType
+    {
+        Statick,
+        Active
+    }
+    public DeliveryMachine deliveryMachine;
+
     public StorageItem itemPrefab;
 
     public StorageItem.ItemType currentDeployType;
@@ -31,6 +43,12 @@ public class ControlOutputZone : MonoBehaviour
     {
         currentTime = reloadTime;
 
+        ColoringThisZone();
+    }
+
+    public void ChangeZoneSendType(StorageItem.ItemType newType)
+    {
+        currentDeployType = newType;
         ColoringThisZone();
     }
 
@@ -64,6 +82,9 @@ public class ControlOutputZone : MonoBehaviour
 
     public void Update()
     {
+        if (zoneIsActive == false)
+            return;
+
         float distance = Vector3.Distance(transform.position, target.position);
         if (distance < distanceToCentr)
             targetInPlace = true;
@@ -103,15 +124,6 @@ public class ControlOutputZone : MonoBehaviour
 
         StorageItem.ItemType type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
         Debug.Log(type);
-        //int randomNuber = Random.Range(0, StorageItem.itemTypeCount);
-        //switch(randomNuber)
-        //{
-        //    case 0:
-
-        //        break;
-
-
-        //}
         CharacterBag.characterBag.ReceivingItem(itemPrefab, type);
     }
 
@@ -144,14 +156,21 @@ public class ControlOutputZone : MonoBehaviour
     public void ShipmentProcessing()
     {
         Debug.Log("Processing");
-    }
+        switch(currentZoneType)
+        {
+            case ZoneType.Statick:
+                //  νθυσÿ
+                break;
 
-    public void CheckColor()
-    {
-        if (targetInPlace)
-            currentColor = Color.blue;
-        else
-            currentColor = Color.yellow;
+            case ZoneType.Active:
+                if (deliveryMachine == null)
+                    return;
+
+                deliveryMachine.OrderProcessing();
+                Debug.Log("Zone to order");
+
+                break;
+        }
     }
 
     public void OnDrawGizmos()

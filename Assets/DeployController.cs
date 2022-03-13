@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class DeployController : MonoBehaviour
 {
-    public List<Transform> outputZone = new List<Transform>();
+    public List<ControlOutputZone> outputZone = new List<ControlOutputZone>();
 
-
+    public bool allow€hipping = false;
     public void Update()
     {
-        
+        if (allow€hipping == false)
+            return;
+
+
     }
 
 
