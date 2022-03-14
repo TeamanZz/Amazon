@@ -52,7 +52,7 @@ public class ProcessingStation : MonoBehaviour
         ViewUI();
 
         fillingImage.fillAmount = 0;
-        scaleFactor = 1f / reloadTime * 0.03f;
+        scaleFactor = 0.92f /* 1f*/ / reloadTime * 0.03f;
         currentTime = reloadTime;
     }
 

@@ -1623,7 +1623,7 @@ MonoBehaviour:
   currentZoneType: 0
   deliveryMachine: {fileID: 0}
   itemPrefab: {fileID: 2816053599578988345, guid: ea0ca541523afa144954eb63aab2eb37, type: 3}
-  currentDeployType: 3
+  currentDeployType: 4
 --- !u!1 &421725284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,12 +5415,26 @@ MonoBehaviour:
   - {fileID: 593209185}
   - {fileID: 481603859}
   - {fileID: 1662322152}
+  outputZone: {fileID: 1445448925}
   maximumAmountCount: 10
   currentAmountCount: 0
   amounts: 000000000000000000000000
   redZone: {fileID: 1532709631}
   yellowZone: {fileID: 728727826}
   greenZone: {fileID: 77444663}
+  outputCount: {fileID: 172716965}
+  target: {fileID: 547081717}
+  distanceToCentr: 1.25
+  zoneIsActive: 0
+  targetInPlace: 0
+  currentColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  centrPoint: {fileID: 1449901792}
+  fillingImage: {fileID: 1475588291}
+  scaleFactor: 0
+  reloadTime: 2
+  currentTime: 0
+  maxOutputCount: 15
+  outputItemsCount: 0
 --- !u!4 &1358369155
 Transform:
   m_ObjectHideFlags: 0
@@ -5911,6 +5925,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 457948, guid: e0854ccf8603ed54e970334c08243d66, type: 3}
   m_PrefabInstance: {fileID: 1446402744}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1449901792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4140398795322444417, guid: d7ba849290f4640489dfad848b9a7aa9, type: 3}
+  m_PrefabInstance: {fileID: 83069084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1456901488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6068,7 +6093,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 0.914
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
