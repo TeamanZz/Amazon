@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ControlOutputZone : MonoBehaviour
+public class ProcessingOutputZone : MonoBehaviour
 {
     [Header("Passive settings")]
     public Transform target;
@@ -27,22 +27,16 @@ public class ControlOutputZone : MonoBehaviour
         Send
     }
 
-    public ZoneType currentZoneType;
-    public enum ZoneType
-    {
-        Statick,
-        Active
-    }
-    public DeliveryMachine deliveryMachine;
-
     public StorageItem itemPrefab;
 
     public StorageItem.ItemType currentDeployType;
 
+    [Header("Parent")]
+    public ProcessingStation parentProcessingStation;
+
     public void Awake()
     {
         currentTime = reloadTime;
-
         ColoringThisZone();
     }
 
@@ -54,32 +48,31 @@ public class ControlOutputZone : MonoBehaviour
 
     public void ColoringThisZone()
     {
-        if(currentZoneState == ZoneState.Receiving)
+        if (currentZoneState == ZoneState.Receiving)
         {
             currentColor = Color.white;
         }
         else
-        switch (currentDeployType)
-        {
-            case StorageItem.ItemType.RedBox:
-                currentColor = Color.red;
-                break;
+            switch (currentDeployType)
+            {
+                case StorageItem.ItemType.RedBox:
+                    currentColor = Color.red;
+                    break;
 
-            case StorageItem.ItemType.YellowBox:
-                currentColor = Color.yellow;
-                break;
+                case StorageItem.ItemType.YellowBox:
+                    currentColor = Color.yellow;
+                    break;
 
-            case StorageItem.ItemType.GreenBox:
-                currentColor = Color.green;
-                break;
+                case StorageItem.ItemType.GreenBox:
+                    currentColor = Color.green;
+                    break;
 
-            case StorageItem.ItemType.NoType:
-                currentColor = Color.black;
-                break;
-        }
+                case StorageItem.ItemType.NoType:
+                    currentColor = Color.black;
+                    break;
+            }
 
     }
-
     public void Update()
     {
         if (zoneIsActive == false)
@@ -117,6 +110,7 @@ public class ControlOutputZone : MonoBehaviour
             currentTime -= Time.deltaTime;
 
     }
+    //  загрузка в рюкзак
     public void ReceivingItem()
     {
         if (CharacterBag.characterBag == null)
@@ -127,23 +121,33 @@ public class ControlOutputZone : MonoBehaviour
         CharacterBag.characterBag.ReceivingItem(itemPrefab, type);
     }
 
+    //  загрузка в здания
     public void SendItem()
     {
         if (CharacterBag.characterBag == null)
             return;
 
+        //if (parentProcessingStation.currentAmountCount >= parentProcessingStation.maximumAmountCount)
+        //    return;
+
         switch (currentDeployType)
         {
             case StorageItem.ItemType.RedBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.RedBox);
+                if (parentProcessingStation.amounts[0] < parentProcessingStation.maximumAmountCount)
+                    CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.RedBox, this, 0);
+                //parentProcessingStation.CheckProcessing(0);
                 break;
 
             case StorageItem.ItemType.YellowBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.YellowBox);
+                if (parentProcessingStation.amounts[1] < parentProcessingStation.maximumAmountCount)
+                    CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.YellowBox, this, 1);
+                //parentProcessingStation.CheckProcessing(1);
                 break;
 
             case StorageItem.ItemType.GreenBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.GreenBox);
+                if (parentProcessingStation.amounts[2] < parentProcessingStation.maximumAmountCount)
+                    CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.GreenBox, this, 2);
+                //parentProcessingStation.CheckProcessing(2);
                 break;
 
             case StorageItem.ItemType.NoType:
@@ -153,30 +157,10 @@ public class ControlOutputZone : MonoBehaviour
 
     }
 
-    //public void ShipmentProcessing()
-    //{
-    //    Debug.Log("Processing");
-    //    switch(currentZoneType)
-    //    {
-    //        case ZoneType.Statick:
-    //            //  нихуя
-    //            break;
-
-    //        case ZoneType.Active:
-    //            if (deliveryMachine == null)
-    //                return;
-
-    //            deliveryMachine.OrderProcessing();
-    //            Debug.Log("Zone to order");
-
-    //            break;
-    //    }
-    //}
-
-    public void OnDrawGizmos()
+    public void SendToStation(int number)
     {
-        Gizmos.color = currentColor;
-        Gizmos.DrawWireCube(transform.position, Vector3.one * distanceToCentr);
-
+        parentProcessingStation.CheckProcessing(number);
     }
+
+
 }

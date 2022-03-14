@@ -28,7 +28,7 @@ public class CharacterBag : MonoBehaviour
         Debug.Log("Add");
         storageItems.Add(currentItem);
         Vector3 point;
-        if (storageItems.Count == 0) 
+        if (storageItems.Count == 0)
             point = new Vector3(firstPoint.localPosition.x, 0, firstPoint.localPosition.z);
 
         else
@@ -54,7 +54,7 @@ public class CharacterBag : MonoBehaviour
         }
     }
 
-    public void SendItem(StorageItem.ItemType type, ControlOutputZone currentZone)
+    public void SendItem(StorageItem.ItemType type)//, ControlOutputZone currentZone)
     {
         if (storageItems.Count <= 0)
             return;
@@ -75,25 +75,42 @@ public class CharacterBag : MonoBehaviour
             }
         }
         else
-        {
             removItem = storageItems[0];
-            Debug.Log("Remove");
-            storageItems.Remove(removItem);
-            Destroy(removItem.gameObject);
-            currentZone.ShipmentProcessing();
 
-            PositionsCheck();
+        Debug.Log("Remove");
+        storageItems.Remove(removItem);
+        Destroy(removItem.gameObject);
+
+        PositionsCheck();
+    }
+
+    public void SendProcessingItem(StorageItem.ItemType type, ProcessingOutputZone outputZone, int number)
+    {
+        if (storageItems.Count <= 0)
             return;
+
+        bool finnd = false;
+        StorageItem removItem = null;
+
+        foreach (var item in storageItems)
+        {
+            if (item.currentItemType == type)
+            {
+                finnd = true;
+                removItem = item;
+                break;
+            }
         }
 
-        if (finnd)
+        Debug.Log("Remove");
+        if (removItem != null)
         {
-            Debug.Log("Remove");
             storageItems.Remove(removItem);
             Destroy(removItem.gameObject);
-            currentZone.ShipmentProcessing();
+
+            outputZone.SendToStation(number);
         }
-        
+
         PositionsCheck();
     }
 }
