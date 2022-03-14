@@ -70,6 +70,10 @@ public class ProcessingOutputZone : MonoBehaviour
                 case StorageItem.ItemType.NoType:
                     currentColor = Color.black;
                     break;
+
+                case StorageItem.ItemType.GrayBox:
+                    currentColor = Color.gray;
+                    break;
             }
 
     }
@@ -116,8 +120,15 @@ public class ProcessingOutputZone : MonoBehaviour
         if (CharacterBag.characterBag == null)
             return;
 
-        StorageItem.ItemType type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
-        Debug.Log(type);
+        if (parentProcessingStation.outputItemsCount <= 0)
+            return;
+
+        parentProcessingStation.outputItemsCount -= 1;
+        parentProcessingStation.ViewUI();
+
+        //StorageItem.ItemType type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
+        StorageItem.ItemType type = StorageItem.ItemType.GrayBox;
+        //Debug.Log(type);
         CharacterBag.characterBag.ReceivingItem(itemPrefab, type);
     }
 
@@ -151,10 +162,11 @@ public class ProcessingOutputZone : MonoBehaviour
                 break;
 
             case StorageItem.ItemType.NoType:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.NoType);
+                CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.NoType, this, 4);
                 break;
         }
 
+        parentProcessingStation.ViewUI();
     }
 
     public void SendToStation(int number)

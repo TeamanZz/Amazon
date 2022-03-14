@@ -16,6 +16,7 @@ public class StorageItem : MonoBehaviour
         RedBox,
         YellowBox,
         GreenBox,
+        GrayBox,
         NoType
     }
 
@@ -33,6 +34,10 @@ public class StorageItem : MonoBehaviour
 
             case ItemType.GreenBox:
                 currentRender.material.color = Color.green;
+                break;
+
+            case ItemType.GrayBox:
+                currentRender.material.color = Color.gray;
                 break;
         }
 

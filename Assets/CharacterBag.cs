@@ -54,7 +54,7 @@ public class CharacterBag : MonoBehaviour
         }
     }
 
-    public void SendItem(StorageItem.ItemType type)//, ControlOutputZone currentZone)
+    public void SendItem(StorageItem.ItemType type, ControlOutputZone currentZone)
     {
         if (storageItems.Count <= 0)
             return;
@@ -75,12 +75,19 @@ public class CharacterBag : MonoBehaviour
             }
         }
         else
+        {
             removItem = storageItems[0];
+            finnd = true;
+        }
 
-        Debug.Log("Remove");
-        storageItems.Remove(removItem);
-        Destroy(removItem.gameObject);
-
+        if (finnd == true)
+        {
+            Debug.Log("Remove");
+            storageItems.Remove(removItem);
+            Destroy(removItem.gameObject);
+            
+            currentZone.ShipmentProcessing();
+        }
         PositionsCheck();
     }
 

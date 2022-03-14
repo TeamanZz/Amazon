@@ -54,29 +54,33 @@ public class ControlOutputZone : MonoBehaviour
 
     public void ColoringThisZone()
     {
-        if(currentZoneState == ZoneState.Receiving)
+        if (currentZoneState == ZoneState.Receiving)
         {
             currentColor = Color.white;
         }
         else
-        switch (currentDeployType)
-        {
-            case StorageItem.ItemType.RedBox:
-                currentColor = Color.red;
-                break;
+            switch (currentDeployType)
+            {
+                case StorageItem.ItemType.RedBox:
+                    currentColor = Color.red;
+                    break;
 
-            case StorageItem.ItemType.YellowBox:
-                currentColor = Color.yellow;
-                break;
+                case StorageItem.ItemType.YellowBox:
+                    currentColor = Color.yellow;
+                    break;
 
-            case StorageItem.ItemType.GreenBox:
-                currentColor = Color.green;
-                break;
+                case StorageItem.ItemType.GreenBox:
+                    currentColor = Color.green;
+                    break;
 
-            case StorageItem.ItemType.NoType:
-                currentColor = Color.black;
-                break;
-        }
+                case StorageItem.ItemType.GrayBox:
+                    currentColor = Color.gray;
+                    break;
+
+                case StorageItem.ItemType.NoType:
+                    currentColor = Color.black;
+                    break;
+            }
 
     }
 
@@ -135,43 +139,47 @@ public class ControlOutputZone : MonoBehaviour
         switch (currentDeployType)
         {
             case StorageItem.ItemType.RedBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.RedBox);
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.RedBox, this);
                 break;
 
             case StorageItem.ItemType.YellowBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.YellowBox);
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.YellowBox, this);
                 break;
 
             case StorageItem.ItemType.GreenBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.GreenBox);
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.GreenBox, this);
+                break;
+
+            case StorageItem.ItemType.GrayBox:
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.GrayBox, this);
                 break;
 
             case StorageItem.ItemType.NoType:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.NoType);
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.NoType, this);
                 break;
         }
 
     }
 
-    //public void ShipmentProcessing()
-    //{
-    //    Debug.Log("Processing");
-    //    switch(currentZoneType)
-    //    {
-    //        case ZoneType.Statick:
-    //            //  νθυσÿ
-    //            break;
+    public void ShipmentProcessing()
+    {
+        Debug.Log("Processing");
+        switch (currentZoneType)
+        {
+            case ZoneType.Statick:
+                //  νθυσÿ
+                break;
 
-    //        case ZoneType.Active:
-    //            if (deliveryMachine == null)
-    //                return;
+            case ZoneType.Active:
+                if (deliveryMachine == null)
+                    return;
 
-    //            deliveryMachine.OrderProcessing();
-    //            Debug.Log("Zone to order");
+                deliveryMachine.OrderProcessing();
+                Debug.Log("Zone to order");
 
-    //            break;
-    //    }
-    //}
+                break;
+        }
+    }
 
     public void OnDrawGizmos()
     {

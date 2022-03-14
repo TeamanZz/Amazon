@@ -7,6 +7,7 @@ using TMPro;
 public class ProcessingStation : MonoBehaviour
 {
     public List<ProcessingOutputZone> processingZones = new List<ProcessingOutputZone>();
+    public ProcessingOutputZone outputZone;
 
     [Header("Data settings")]
     public int maximumAmountCount = 10;
@@ -19,13 +20,40 @@ public class ProcessingStation : MonoBehaviour
     public TextMeshProUGUI yellowZone;
     public TextMeshProUGUI greenZone;
 
+    public TextMeshProUGUI outputCount;
+
+    [Header("Connect settings")]
+    public Transform target;
+    public float distanceToCentr = 1.25f;
+
+    public bool zoneIsActive = false;
+    public bool targetInPlace = false;
+
+    public Color currentColor = Color.gray;
+    public Image centrPoint;
+
+    public Image fillingImage;
+    public float scaleFactor;
+
+    public float reloadTime = 0.5f;
+    public float currentTime;
+
+    public int maxOutputCount = 15;
+    public int outputItemsCount = 0;
     public void Awake()
     {
+        zoneIsActive = true;
+
         foreach (var zone in processingZones)
         {
             zone.parentProcessingStation = this;
         }
+        outputZone.parentProcessingStation = this;
         ViewUI();
+
+        fillingImage.fillAmount = 0;
+        scaleFactor = 1f / reloadTime * 0.03f;
+        currentTime = reloadTime;
     }
 
     public void ViewUI()
@@ -34,11 +62,14 @@ public class ProcessingStation : MonoBehaviour
         yellowZone.text = amounts[1].ToString() + " / " + maximumAmountCount.ToString();
         greenZone.text = amounts[2].ToString() + " / " + maximumAmountCount.ToString();
 
+        outputCount.text = outputItemsCount.ToString() + " / " + maxOutputCount.ToString();
     }
 
     public void CheckProcessing(int colorNumber)
     {
-        switch(colorNumber)
+        scaleFactor = 1f / reloadTime * 0.03f;
+
+        switch (colorNumber)
         {
             case 0:
                 amounts[0] += 1;
@@ -54,6 +85,48 @@ public class ProcessingStation : MonoBehaviour
         }
 
         Debug.Log(amounts[0] + " | " + amounts[1] + " | " + amounts[2]);
+        ViewUI();
+    }
+
+    public void Update()
+    {
+        if (zoneIsActive == false)
+            return;
+
+
+        float distance = Vector3.Distance(centrPoint.transform.position, target.position);
+        if (distance < distanceToCentr)
+            targetInPlace = true;
+        else
+            targetInPlace = false;
+
+        if (amounts[0] <= 0 || amounts[1] <= 0 || amounts[2] <= 0 || outputItemsCount >= maxOutputCount)
+            return;
+
+        centrPoint.color = currentColor;
+        Debug.DrawLine(centrPoint.transform.position, target.position, currentColor);
+
+        if (!targetInPlace)
+            return;
+
+        if (currentTime <= 0)
+        {
+            fillingImage.fillAmount = 0;
+            currentTime = reloadTime;
+        //    if (amounts[0] > 0 && amounts[1] <= 0 && amounts[2] <= 0 || outputItemsCount >= maxOutputCount)
+        //)
+            amounts[0] -= 1;
+            amounts[1] -= 1;
+            amounts[2] -= 1;
+
+            outputItemsCount += 1;
+        }
+        else
+        {
+            currentTime -= Time.deltaTime;
+            fillingImage.fillAmount += scaleFactor;
+        }
+
         ViewUI();
     }
 }
