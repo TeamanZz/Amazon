@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2463802606547880539}
   - component: {fileID: 5036676656255442697}
   m_Layer: 0
-  m_Name: Cube.007
+  m_Name: Piston
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1789236929249803058}
   - component: {fileID: 6786021089215668899}
   m_Layer: 0
-  m_Name: Cube.001
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
