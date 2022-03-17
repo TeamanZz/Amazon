@@ -30,7 +30,6 @@ public class CharacterBag : MonoBehaviour
         Vector3 point;
         if (storageItems.Count == 0)
             point = new Vector3(firstPoint.localPosition.x, 0, firstPoint.localPosition.z);
-
         else
             point = new Vector3(firstPoint.localPosition.x, 0 + storageItems.Count * itemScaleInBag, firstPoint.localPosition.z);
 
@@ -89,6 +88,62 @@ public class CharacterBag : MonoBehaviour
             currentZone.ShipmentProcessing();
         }
         PositionsCheck();
+    }
+    public void SendToShelveItem(StorageItem.ItemType type, ShelvesOutputZone outputZone)
+    {
+        if (storageItems.Count <= 0)
+            return;
+
+        bool finnd = false;
+        StorageItem removItem = null;
+
+        if (type != StorageItem.ItemType.NoType)
+        {
+            foreach (var item in storageItems)
+            {
+                if (item.currentItemType == type)
+                {
+                    finnd = true;
+                    removItem = item;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            removItem = storageItems[0];
+            finnd = true;
+        }
+
+        Debug.Log("Remove");
+        if (removItem != null && finnd == true)
+        {
+            storageItems.Remove(removItem);
+            Destroy(removItem.gameObject);
+        }
+
+        PositionsCheck();
+    }
+
+    public bool FindType(StorageItem.ItemType type)
+    {
+        bool finnd = false;
+
+        if (type != StorageItem.ItemType.NoType)
+        {
+            foreach (var item in storageItems)
+            {
+                if (item.currentItemType == type)
+                {
+                    finnd = true;
+                    break;
+                }
+            }
+        }
+        else
+            finnd = true;
+
+        return finnd;
     }
 
     public void SendProcessingItem(StorageItem.ItemType type, ProcessingOutputZone outputZone, int number)

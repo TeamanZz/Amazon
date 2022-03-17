@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProcessingOutputZone : MonoBehaviour
+public class ShelvesOutputZone : MonoBehaviour
 {
     [Header("Passive settings")]
     public Transform target;
@@ -32,7 +32,7 @@ public class ProcessingOutputZone : MonoBehaviour
     public StorageItem.ItemType currentDeployType;
 
     [Header("Parent")]
-    public ProcessingStation parentProcessingStation;
+    public ShelvesController parentShelvesController;
 
     public void Awake()
     {
@@ -76,12 +76,16 @@ public class ProcessingOutputZone : MonoBehaviour
                     break;
             }
 
+        Debug.Log("Coloring");
     }
-   
     public void Update()
     {
         if (zoneIsActive == false)
             return;
+
+        if(currentDeployType != parentShelvesController.currentDeployType)
+            ChangeZoneSendType(parentShelvesController.currentDeployType);
+        
 
         float distance = Vector3.Distance(transform.position, target.position);
         if (distance < distanceToCentr)
@@ -115,65 +119,82 @@ public class ProcessingOutputZone : MonoBehaviour
             currentTime -= Time.deltaTime;
 
     }
+
     //  загрузка в рюкзак
     public void ReceivingItem()
     {
         if (CharacterBag.characterBag == null)
             return;
 
-        if (parentProcessingStation.outputItemsCount <= 0)
+        if (parentShelvesController.outputItemsCount < 1)
             return;
 
-        parentProcessingStation.outputItemsCount -= 1;
-        parentProcessingStation.ViewUI();
+        Debug.Log("Zone receve");
+        parentShelvesController.outputItemsCount -= 1;
+        parentShelvesController.ReceivingItem(this);
 
-        //StorageItem.ItemType type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
-        StorageItem.ItemType type = StorageItem.ItemType.GrayBox;
-        //Debug.Log(type);
-        CharacterBag.characterBag.ReceivingItem(itemPrefab, type);
     }
 
-    //  загрузка в здания
+    public void SendReceivingData(StorageItem currentOutItem)
+    {
+        CharacterBag.characterBag.ReceivingItem(itemPrefab, currentOutItem.currentItemType);
+    }
+
     public void SendItem()
     {
         if (CharacterBag.characterBag == null)
             return;
 
-        //if (parentProcessingStation.currentAmountCount >= parentProcessingStation.maximumAmountCount)
-        //    return;
+        if (parentShelvesController.storageItems.Count > parentShelvesController.maxOutputCount - 1)
+            return;
 
+        if (CharacterBag.characterBag.storageItems.Count < 1)
+            return;
+
+       
         switch (currentDeployType)
         {
             case StorageItem.ItemType.RedBox:
-                if (parentProcessingStation.amounts[0] < parentProcessingStation.maximumAmountCount)
-                    CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.RedBox, this, 0);
-                //parentProcessingStation.CheckProcessing(0);
+                if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.RedBox))
+                    break;
+
+                parentShelvesController.outputItemsCount += 1;
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.RedBox, this);
+                parentShelvesController.SendItem(StorageItem.ItemType.RedBox, itemPrefab);
                 break;
 
             case StorageItem.ItemType.YellowBox:
-                if (parentProcessingStation.amounts[1] < parentProcessingStation.maximumAmountCount)
-                    CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.YellowBox, this, 1);
-                //parentProcessingStation.CheckProcessing(1);
+                if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.YellowBox))
+                    break;
+
+                parentShelvesController.outputItemsCount += 1;
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.YellowBox, this);
+                parentShelvesController.SendItem(StorageItem.ItemType.YellowBox, itemPrefab);
                 break;
 
             case StorageItem.ItemType.GreenBox:
-                if (parentProcessingStation.amounts[2] < parentProcessingStation.maximumAmountCount)
-                    CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.GreenBox, this, 2);
-                //parentProcessingStation.CheckProcessing(2);
+                if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.GreenBox))
+                    break;
+
+                parentShelvesController.outputItemsCount += 1;
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.GreenBox, this);
+                parentShelvesController.SendItem(StorageItem.ItemType.GreenBox, itemPrefab);
+                break;
+
+            case StorageItem.ItemType.GrayBox:
+                if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.GrayBox))
+                    break;
+
+                parentShelvesController.outputItemsCount += 1;
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.GrayBox, this);
+                parentShelvesController.SendItem(StorageItem.ItemType.GrayBox, itemPrefab);
                 break;
 
             case StorageItem.ItemType.NoType:
-                CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.NoType, this, 4);
+                parentShelvesController.outputItemsCount += 1;
+                parentShelvesController.SendItem(CharacterBag.characterBag.storageItems[0].currentItemType, itemPrefab);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.NoType, this);
                 break;
         }
-
-        parentProcessingStation.ViewUI();
     }
-
-    public void SendToStation(int number)
-    {
-        parentProcessingStation.CheckProcessing(number);
-    }
-
-
 }
