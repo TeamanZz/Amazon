@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using DG.Tweening;
 
 public class DeliveryMachine : MonoBehaviour
 {
@@ -25,8 +26,19 @@ public class DeliveryMachine : MonoBehaviour
     public Image orderImageColoring;
     public TextMeshProUGUI orderAmountText;
 
+    [Header("Move Settings")]
+    public Transform deployPoint;
+    public Transform endPoint;
+    public Transform carTransform;
+
+    public float carSpeed = 5f;
+
+
+    [ContextMenu("Moved To Deploy")]
     public void MoveToGates()
     {
+        carTransform.DOMoveX(deployPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
+        carTransform.DOShakeRotation(2, strength: 5, 10);
         ReceivingAnOrder();
     }
 
@@ -64,6 +76,7 @@ public class DeliveryMachine : MonoBehaviour
     
     }
 
+    [ContextMenu("Moved")]
     public void SendingOrder()
     {
         outputZone.zoneIsActive = false;
@@ -73,6 +86,9 @@ public class DeliveryMachine : MonoBehaviour
 
         orderAmountText.text = "";
         deliveryData = null;
+
+        carTransform.DOMoveX(endPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
+        carTransform.DOShakeRotation(2, strength: 5, 10);
     }
 
 
