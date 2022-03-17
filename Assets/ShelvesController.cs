@@ -68,6 +68,9 @@ public class ShelvesController : MonoBehaviour
     public void ReceivingItem(ShelvesOutputZone shelvesOutputZone)
     {
         if (storageItems.Count < 1)
+            return; 
+
+        if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumLoadCapacity)
             return;
 
         Debug.Log("Controller receve");
