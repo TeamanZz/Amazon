@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class UILookAt : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform target;
+    public bool isActive = true;
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (!isActive)
+            return;
+
+        transform.LookAt(target);
     }
 }
