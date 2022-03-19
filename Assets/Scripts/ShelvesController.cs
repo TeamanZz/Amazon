@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ShelvesController : MonoBehaviour
 {
     [Header("Main settings")]
-    public Transform storageForPrefabs; 
+    public Transform storageForPrefabs;
     public float itemScaleOnShelf = 1f;
 
     public List<ShelvesOutputZone> inputZones = new List<ShelvesOutputZone>();
@@ -30,7 +31,7 @@ public class ShelvesController : MonoBehaviour
         }
         outputZone.parentShelvesController = this;
 
-        foreach(var shalve in localShelves)
+        foreach (var shalve in localShelves)
         {
             shalve.InitializationParent(this);
         }
@@ -57,7 +58,7 @@ public class ShelvesController : MonoBehaviour
         storageItems.Add(currentItem);
 
         Vector3 point = positions[storageItems.Count - 1];
-        
+
         currentItem.transform.parent = storageForPrefabs;
         currentItem.transform.localScale = Vector3.one * itemScaleOnShelf;
         currentItem.transform.localPosition = point;
@@ -68,7 +69,7 @@ public class ShelvesController : MonoBehaviour
     public void ReceivingItem(ShelvesOutputZone shelvesOutputZone)
     {
         if (storageItems.Count < 1)
-            return; 
+            return;
 
         if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumLoadCapacity)
             return;
@@ -78,7 +79,8 @@ public class ShelvesController : MonoBehaviour
         shelvesOutputZone.SendReceivingData(item);
 
         storageItems.Remove(item);
-        Destroy(item.gameObject);
+        storageItems[storageItems.Count - 1].transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
+        Destroy(item.gameObject, 0.3f);
 
         CheckAllPositions();
     }

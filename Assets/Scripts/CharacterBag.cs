@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CharacterBag : MonoBehaviour
 {
@@ -8,12 +9,13 @@ public class CharacterBag : MonoBehaviour
     public List<StorageItem> storageItems = new List<StorageItem>();
 
     public Transform firstPoint;
-    public Vector3 currentPoint;
 
     public float itemScaleInBag = 0.5f;
 
     public int maximumLoadCapacity = 10;
     private Animator animator;
+
+    public StorageItemFlying flyingPrefab;
     public void Awake()
     {
         characterBag = this;
@@ -26,29 +28,24 @@ public class CharacterBag : MonoBehaviour
             return;
 
         StorageItem currentItem = Instantiate(newItemPrefab);
+        StorageItemFlying itemFlying = Instantiate(flyingPrefab);
         currentItem.currentItemType = type;
-        Debug.Log("Add");
+
+        Vector3 point = new Vector3(0, storageItems.Count * itemScaleInBag, 0);
+
         storageItems.Add(currentItem);
-        Vector3 point;
-        if (storageItems.Count == 0)
-        {
-            animator.SetBool("IsCarrying", false);
-            point = new Vector3(firstPoint.localPosition.x, 0, firstPoint.localPosition.z);
-        }
-        else
-        {
-            point = new Vector3(firstPoint.localPosition.x, 0 + storageItems.Count * itemScaleInBag, firstPoint.localPosition.z);
-            animator.SetBool("IsCarrying", true);
-        }
-
-        Debug.Log(point);
-        currentPoint = point;
-
         currentItem.transform.parent = firstPoint;
+        itemFlying.transform.parent = firstPoint;
+        itemFlying.transform.localPosition = new Vector3(0, (storageItems.Count + 1) * itemScaleInBag, 0);
         currentItem.transform.localScale = Vector3.one * itemScaleInBag;
-        currentItem.transform.localPosition = currentPoint;
+        currentItem.transform.localPosition = point; //+ new Vector3(0, 5, 0);
+        currentItem.transform.eulerAngles = Vector3.zero;
+        itemFlying.FlyTo(new Vector3(0, (storageItems.Count - 1) * itemScaleInBag, 0), currentItem.transform.eulerAngles, type);
 
         PositionsCheck();
+
+        animator.SetBool("IsCarrying", true);
+        Debug.Log("Add");
     }
 
     public void PositionsCheck()
@@ -56,8 +53,8 @@ public class CharacterBag : MonoBehaviour
         Vector3 nullPoint;// = new Vector3(firstPoint.localPosition.x, 0, firstPoint.localPosition.z); ;
         for (int i = 0; i < storageItems.Count; i++)
         {
-            nullPoint = new Vector3(firstPoint.localPosition.x, 0 + i * itemScaleInBag, firstPoint.localPosition.z);
-            storageItems[i].transform.localPosition = nullPoint;
+            nullPoint = new Vector3(0, i * itemScaleInBag, 0);
+            storageItems[i].transform.DOLocalMove(nullPoint, 0.2f);
         }
     }
 
@@ -91,7 +88,8 @@ public class CharacterBag : MonoBehaviour
         {
             Debug.Log("Remove");
             storageItems.Remove(removItem);
-            Destroy(removItem.gameObject);
+            removItem.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
+            Destroy(removItem.gameObject, 0.3f);
 
             if (storageItems.Count == 0)
             {
@@ -136,7 +134,8 @@ public class CharacterBag : MonoBehaviour
         if (removItem != null && finnd == true)
         {
             storageItems.Remove(removItem);
-            Destroy(removItem.gameObject);
+            removItem.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
+            Destroy(removItem.gameObject, 0.3f);
         }
 
         if (storageItems.Count == 0)
@@ -180,14 +179,12 @@ public class CharacterBag : MonoBehaviour
         if (outputZone.parentProcessingStation.amounts[number] >= outputZone.parentProcessingStation.maximumAmountCount)
             return;
 
-        bool finnd = false;
         StorageItem removItem = null;
 
         foreach (var item in storageItems)
         {
             if (item.currentItemType == type)
             {
-                finnd = true;
                 removItem = item;
                 break;
             }
@@ -197,7 +194,8 @@ public class CharacterBag : MonoBehaviour
         if (removItem != null)
         {
             storageItems.Remove(removItem);
-            Destroy(removItem.gameObject);
+            removItem.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
+            Destroy(removItem.gameObject, 0.3f);
             if (storageItems.Count == 0)
             {
                 animator.SetBool("IsCarrying", false);

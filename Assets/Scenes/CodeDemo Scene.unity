@@ -235,6 +235,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26320996}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &39504375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5228194750363067169, guid: ab6a5d2d4e93aca44bdc713e835f7742, type: 3}
+  m_PrefabInstance: {fileID: 1679611568}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &39504376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39504375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac6ae2cb3cb20f4aa117976a0187ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &56934761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,9 +2735,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storageItems: []
   firstPoint: {fileID: 116440361}
-  currentPoint: {x: 0, y: 0, z: 0}
   itemScaleInBag: 0.5
   maximumLoadCapacity: 10
+  flyingPrefab: {fileID: 3191045007959916278, guid: b73907981e23870468d67eb7edd908ae, type: 3}
 --- !u!54 &547081715 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 4677712207377868575, guid: bfb61a299149ace458d74a29d699c118, type: 3}
@@ -2917,6 +2934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4677712207377868574, guid: bfb61a299149ace458d74a29d699c118, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 33d894efb4a8fe04484e05aa0148d31d, type: 2}
     - target: {fileID: 4677712207377868575, guid: bfb61a299149ace458d74a29d699c118, type: 3}
       propertyPath: m_Interpolate
       value: 2
@@ -8266,6 +8287,10 @@ PrefabInstance:
     - target: {fileID: 4131425053583703523, guid: ab6a5d2d4e93aca44bdc713e835f7742, type: 3}
       propertyPath: m_Name
       value: Merger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423278585765665631, guid: ab6a5d2d4e93aca44bdc713e835f7742, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab6a5d2d4e93aca44bdc713e835f7742, type: 3}

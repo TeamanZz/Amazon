@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRB.velocity = (direction.normalized * speed);
             var angle = Mathf.Atan2(-floatingJoystick.Horizontal, floatingJoystick.Vertical) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, -angle, 0)), Time.deltaTime * 10);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, -angle, 0)), Time.deltaTime * 15);
 
             animator.SetBool("IsRunning", true);
         }

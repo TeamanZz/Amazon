@@ -12,7 +12,7 @@ public class DeliveryMachine : MonoBehaviour
     [Serializable]
     public class CurrentDeliveryData
     {
-        public StorageItem.ItemType orderType =StorageItem.ItemType.RedBox;
+        public StorageItem.ItemType orderType = StorageItem.ItemType.RedBox;
         public int correctAmount;
         public int currentAmount;
     }
@@ -51,7 +51,8 @@ public class DeliveryMachine : MonoBehaviour
     public void ReceivingAnOrder()
     {
         if (orderViewChild != null)
-        { OrderViewController.viewController.RemovePanel(orderViewChild);
+        {
+            OrderViewController.viewController.RemovePanel(orderViewChild);
             return;
         }
         deliveryData = null;
@@ -69,17 +70,17 @@ public class DeliveryMachine : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (orderViewChild != null) 
+        if (orderViewChild != null)
             return;
 
         Debug.Log("Open Door");
 
         //  0 -> 150
         Vector3 leftVector = new Vector3(0, 120, 0);
-        leftDoor.localEulerAngles = leftVector;
+        leftDoor.DOLocalRotate(leftVector, 1.2f).SetEase(Ease.OutBack);// = leftVector;
         //  0 -> -150
         Vector3 rightVector = new Vector3(0, -120, 0);
-        rightDoor.localEulerAngles = rightVector;
+        rightDoor.DOLocalRotate(rightVector, 0.8f).SetEase(Ease.OutBack);
         //leftDoor.rotation = Quaternion.Lerp(Quaternion.EulerAngles(Vector3.zero), Quaternion.EulerAngles(leftVector), 5f); 
 
         ViewUI();
@@ -89,10 +90,10 @@ public class DeliveryMachine : MonoBehaviour
     public void ClosedDoor()
     {
         Vector3 leftVector = new Vector3(0, 0, 0);
-        leftDoor.localEulerAngles = leftVector;
+        leftDoor.DOLocalRotate(leftVector, 1.2f).SetEase(Ease.OutBack);
         //  0 -> -150
         Vector3 rightVector = new Vector3(0, 0, 0);
-        rightDoor.localEulerAngles = rightVector;
+        rightDoor.DOLocalRotate(rightVector, 0.8f).SetEase(Ease.OutBack);
     }
 
     public void ViewUI()
@@ -123,14 +124,11 @@ public class DeliveryMachine : MonoBehaviour
 
         orderAmountText.text = "";
         deliveryData = null;
-        
+
         ClosedDoor();
         OrderViewController.viewController.RemovePanel(orderViewChild);
 
         carTransform.DOMoveX(endPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
         carTransform.DOShakeRotation(2, strength: 5, 10);
     }
-
-
-
 }
