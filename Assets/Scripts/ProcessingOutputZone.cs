@@ -145,7 +145,7 @@ public class ProcessingOutputZone : MonoBehaviour
         switch (currentDeployType)
         {
             case StorageItem.ItemType.RedBox:
-                if (parentProcessingStation.amounts[2] < parentProcessingStation.maximumAmountCount)
+                if (parentProcessingStation.amounts[0] < parentProcessingStation.maximumAmountCount)
                     CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.RedBox, this, 0);
                 //parentProcessingStation.CheckProcessing(0);
                 break;
@@ -157,7 +157,7 @@ public class ProcessingOutputZone : MonoBehaviour
                 break;
 
             case StorageItem.ItemType.GreenBox:
-                if (parentProcessingStation.amounts[0] < parentProcessingStation.maximumAmountCount)
+                if (parentProcessingStation.amounts[2] < parentProcessingStation.maximumAmountCount)
                     CharacterBag.characterBag.SendProcessingItem(StorageItem.ItemType.GreenBox, this, 2);
                 //parentProcessingStation.CheckProcessing(2);
                 break;

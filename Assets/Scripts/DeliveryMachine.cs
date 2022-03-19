@@ -12,7 +12,7 @@ public class DeliveryMachine : MonoBehaviour
     [Serializable]
     public class CurrentDeliveryData
     {
-        public StorageItem.ItemType orderType;
+        public StorageItem.ItemType orderType =StorageItem.ItemType.RedBox;
         public int correctAmount;
         public int currentAmount;
     }
@@ -25,6 +25,7 @@ public class DeliveryMachine : MonoBehaviour
     [Header("View settings")]
     public Image orderImageColoring;
     public TextMeshProUGUI orderAmountText;
+    public OrderView orderViewChild;
 
     [Header("Move Settings")]
     public Transform deployPoint;
@@ -49,6 +50,10 @@ public class DeliveryMachine : MonoBehaviour
     [ContextMenu("Receiving Order")]
     public void ReceivingAnOrder()
     {
+        if (orderViewChild != null)
+        { OrderViewController.viewController.RemovePanel(orderViewChild);
+            return;
+        }
         deliveryData = null;
 
         deliveryData = new CurrentDeliveryData();
@@ -59,12 +64,14 @@ public class DeliveryMachine : MonoBehaviour
         outputZone.ChangeZoneSendType(deliveryData.orderType);
         orderImageColoring.color = outputZone.currentColor;
 
-        ViewUI();
         outputZone.zoneIsActive = true;
     }
 
     public void OpenDoor()
     {
+        if (orderViewChild != null) 
+            return;
+
         Debug.Log("Open Door");
 
         //  0 -> 150
@@ -75,6 +82,8 @@ public class DeliveryMachine : MonoBehaviour
         rightDoor.localEulerAngles = rightVector;
         //leftDoor.rotation = Quaternion.Lerp(Quaternion.EulerAngles(Vector3.zero), Quaternion.EulerAngles(leftVector), 5f); 
 
+        ViewUI();
+        OrderViewController.viewController.AddPanel(this, deliveryData.orderType);
     }
 
     public void ClosedDoor()
@@ -89,6 +98,8 @@ public class DeliveryMachine : MonoBehaviour
     public void ViewUI()
     {
         orderAmountText.text = deliveryData.currentAmount.ToString() + " / " + deliveryData.correctAmount.ToString();
+        if (orderViewChild != null)
+            orderViewChild.UpdateUI(deliveryData.currentAmount, deliveryData.correctAmount);
     }
 
     public void OrderProcessing()
@@ -114,6 +125,7 @@ public class DeliveryMachine : MonoBehaviour
         deliveryData = null;
         
         ClosedDoor();
+        OrderViewController.viewController.RemovePanel(orderViewChild);
 
         carTransform.DOMoveX(endPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
         carTransform.DOShakeRotation(2, strength: 5, 10);

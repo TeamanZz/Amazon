@@ -101,7 +101,7 @@ public class ProcessingStation : MonoBehaviour
         else
             targetInPlace = false;
 
-        if (amounts[0] <= 0 || amounts[1] <= 0 || amounts[2] <= 0 || outputItemsCount >= maxOutputCount)
+        if ((amounts[0] <= 0 || amounts[1] <= 0 || amounts[2] <= 0 )|| outputItemsCount >= maxOutputCount)
             return;
 
         centrPoint.color = currentColor;
@@ -114,13 +114,14 @@ public class ProcessingStation : MonoBehaviour
         {
             fillingImage.fillAmount = 0;
             currentTime = reloadTime;
-        //    if (amounts[0] > 0 && amounts[1] <= 0 && amounts[2] <= 0 || outputItemsCount >= maxOutputCount)
-        //)
-            amounts[0] -= 1;
-            amounts[1] -= 1;
-            amounts[2] -= 1;
+            //if (amounts[0] > 0 && amounts[1] > 0 && amounts[2] > 0) //|| outputItemsCount >= maxOutputCount)
+            //{
+                amounts[2] -= 1;
+                amounts[1] -= 1;
+                amounts[0] -= 1;
 
-            outputItemsCount += 1;
+                outputItemsCount += 1;
+            //}
         }
         else
         {

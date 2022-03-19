@@ -151,6 +151,9 @@ public class CharacterBag : MonoBehaviour
         if (storageItems.Count <= 0)
             return;
 
+        if (outputZone.parentProcessingStation.amounts[number] >= outputZone.parentProcessingStation.maximumAmountCount)
+            return;
+
         bool finnd = false;
         StorageItem removItem = null;
 
