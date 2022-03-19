@@ -65,16 +65,16 @@ public class ControlOutputZone : MonoBehaviour
                     currentColor = Color.red;
                     break;
 
-                case StorageItem.ItemType.YellowBox:
-                    currentColor = Color.yellow;
+                case StorageItem.ItemType.BlueBox:
+                    currentColor = Color.blue;
                     break;
 
                 case StorageItem.ItemType.GreenBox:
                     currentColor = Color.green;
                     break;
 
-                case StorageItem.ItemType.GrayBox:
-                    currentColor = Color.gray;
+                case StorageItem.ItemType.YellowBox:
+                    currentColor = Color.yellow;
                     break;
 
                 case StorageItem.ItemType.NoType:
@@ -142,16 +142,16 @@ public class ControlOutputZone : MonoBehaviour
                 CharacterBag.characterBag.SendItem(StorageItem.ItemType.RedBox, this);
                 break;
 
-            case StorageItem.ItemType.YellowBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.YellowBox, this);
+            case StorageItem.ItemType.BlueBox:
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.BlueBox, this);
                 break;
 
             case StorageItem.ItemType.GreenBox:
                 CharacterBag.characterBag.SendItem(StorageItem.ItemType.GreenBox, this);
                 break;
 
-            case StorageItem.ItemType.GrayBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.GrayBox, this);
+            case StorageItem.ItemType.YellowBox:
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.YellowBox, this);
                 break;
 
             case StorageItem.ItemType.NoType:

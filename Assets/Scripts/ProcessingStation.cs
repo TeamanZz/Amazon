@@ -40,6 +40,7 @@ public class ProcessingStation : MonoBehaviour
 
     public int maxOutputCount = 15;
     public int outputItemsCount = 0;
+
     public void Awake()
     {
         zoneIsActive = true;
@@ -58,9 +59,9 @@ public class ProcessingStation : MonoBehaviour
 
     public void ViewUI()
     {
-        redZone.text = amounts[0].ToString() + " / " + maximumAmountCount.ToString();
+        redZone.text = amounts[2].ToString() + " / " + maximumAmountCount.ToString();
         yellowZone.text = amounts[1].ToString() + " / " + maximumAmountCount.ToString();
-        greenZone.text = amounts[2].ToString() + " / " + maximumAmountCount.ToString();
+        greenZone.text = amounts[0].ToString() + " / " + maximumAmountCount.ToString();
 
         outputCount.text = outputItemsCount.ToString() + " / " + maxOutputCount.ToString();
     }

@@ -10,34 +10,41 @@ public class StorageItem : MonoBehaviour
 
     [Header("View settings")]
     public static int itemTypeCount = 3;
+
+    public List<Material> materials = new List<Material>();
     public ItemType currentItemType;
     public enum ItemType
     {
         RedBox,
-        YellowBox,
+        BlueBox,
         GreenBox,
-        GrayBox,
+        YellowBox,
         NoType
     }
 
+    [ContextMenu("Coloring")]
     public void Start()
     {
         switch (currentItemType)
         {
             case ItemType.RedBox:
-                currentRender.material.color = Color.red;
+                //currentRender.material.color = Color.red;
+                currentRender.material = materials[0];
                 break;
 
-            case ItemType.YellowBox:
-                currentRender.material.color = Color.yellow;
+            case ItemType.BlueBox:
+                //currentRender.material.color = Color.blue;
+                currentRender.material = materials[1];
                 break;
 
             case ItemType.GreenBox:
-                currentRender.material.color = Color.green;
+                //currentRender.material.color = Color.green;
+                currentRender.material = materials[2]; 
                 break;
 
-            case ItemType.GrayBox:
-                currentRender.material.color = Color.gray;
+            case ItemType.YellowBox:
+                //currentRender.material.color = Color.yellow;
+                currentRender.material = materials[3];
                 break;
         }
 

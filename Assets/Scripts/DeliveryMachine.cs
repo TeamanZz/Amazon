@@ -9,7 +9,7 @@ using DG.Tweening;
 public class DeliveryMachine : MonoBehaviour
 {
     public ControlOutputZone outputZone;
-    [Serializable]    
+    [Serializable]
     public class CurrentDeliveryData
     {
         public StorageItem.ItemType orderType;
@@ -33,12 +33,16 @@ public class DeliveryMachine : MonoBehaviour
 
     public float carSpeed = 5f;
 
+    public Transform leftDoor;
+    public Transform rightDoor;
 
     [ContextMenu("Moved To Deploy")]
     public void MoveToGates()
     {
         carTransform.DOMoveX(deployPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
         carTransform.DOShakeRotation(2, strength: 5, 10);
+
+        Invoke("OpenDoor", 4f);
         ReceivingAnOrder();
     }
 
@@ -54,9 +58,32 @@ public class DeliveryMachine : MonoBehaviour
 
         outputZone.ChangeZoneSendType(deliveryData.orderType);
         orderImageColoring.color = outputZone.currentColor;
-        
+
         ViewUI();
         outputZone.zoneIsActive = true;
+    }
+
+    public void OpenDoor()
+    {
+        Debug.Log("Open Door");
+
+        //  0 -> 150
+        Vector3 leftVector = new Vector3(0, 120, 0);
+        leftDoor.localEulerAngles = leftVector;
+        //  0 -> -150
+        Vector3 rightVector = new Vector3(0, -120, 0);
+        rightDoor.localEulerAngles = rightVector;
+        //leftDoor.rotation = Quaternion.Lerp(Quaternion.EulerAngles(Vector3.zero), Quaternion.EulerAngles(leftVector), 5f); 
+
+    }
+
+    public void ClosedDoor()
+    {
+        Vector3 leftVector = new Vector3(0, 0, 0);
+        leftDoor.localEulerAngles = leftVector;
+        //  0 -> -150
+        Vector3 rightVector = new Vector3(0, 0, 0);
+        rightDoor.localEulerAngles = rightVector;
     }
 
     public void ViewUI()
@@ -73,7 +100,6 @@ public class DeliveryMachine : MonoBehaviour
 
         if (deliveryData.currentAmount >= deliveryData.correctAmount)
             SendingOrder();
-    
     }
 
     [ContextMenu("Moved")]
@@ -86,6 +112,8 @@ public class DeliveryMachine : MonoBehaviour
 
         orderAmountText.text = "";
         deliveryData = null;
+        
+        ClosedDoor();
 
         carTransform.DOMoveX(endPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
         carTransform.DOShakeRotation(2, strength: 5, 10);
