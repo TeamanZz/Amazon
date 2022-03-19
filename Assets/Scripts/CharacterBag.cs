@@ -13,11 +13,13 @@ public class CharacterBag : MonoBehaviour
     public float itemScaleInBag = 0.5f;
 
     public int maximumLoadCapacity = 10;
-
+    private Animator animator;
     public void Awake()
     {
         characterBag = this;
+        animator = GetComponent<Animator>();
     }
+
     public void ReceivingItem(StorageItem newItemPrefab, StorageItem.ItemType type)
     {
         if (storageItems.Count >= maximumLoadCapacity)
@@ -29,9 +31,15 @@ public class CharacterBag : MonoBehaviour
         storageItems.Add(currentItem);
         Vector3 point;
         if (storageItems.Count == 0)
+        {
+            animator.SetBool("IsCarrying", false);
             point = new Vector3(firstPoint.localPosition.x, 0, firstPoint.localPosition.z);
+        }
         else
+        {
             point = new Vector3(firstPoint.localPosition.x, 0 + storageItems.Count * itemScaleInBag, firstPoint.localPosition.z);
+            animator.SetBool("IsCarrying", true);
+        }
 
         Debug.Log(point);
         currentPoint = point;
@@ -84,7 +92,16 @@ public class CharacterBag : MonoBehaviour
             Debug.Log("Remove");
             storageItems.Remove(removItem);
             Destroy(removItem.gameObject);
-            
+
+            if (storageItems.Count == 0)
+            {
+                animator.SetBool("IsCarrying", false);
+            }
+            else
+            {
+                animator.SetBool("IsCarrying", true);
+            }
+
             currentZone.ShipmentProcessing();
         }
         PositionsCheck();
@@ -120,6 +137,15 @@ public class CharacterBag : MonoBehaviour
         {
             storageItems.Remove(removItem);
             Destroy(removItem.gameObject);
+        }
+
+        if (storageItems.Count == 0)
+        {
+            animator.SetBool("IsCarrying", false);
+        }
+        else
+        {
+            animator.SetBool("IsCarrying", true);
         }
 
         PositionsCheck();
@@ -172,7 +198,14 @@ public class CharacterBag : MonoBehaviour
         {
             storageItems.Remove(removItem);
             Destroy(removItem.gameObject);
-
+            if (storageItems.Count == 0)
+            {
+                animator.SetBool("IsCarrying", false);
+            }
+            else
+            {
+                animator.SetBool("IsCarrying", true);
+            }
             outputZone.SendToStation(number);
         }
 
