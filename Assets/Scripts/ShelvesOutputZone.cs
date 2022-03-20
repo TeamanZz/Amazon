@@ -74,6 +74,18 @@ public class ShelvesOutputZone : MonoBehaviour
                 case StorageItem.ItemType.YellowBox:
                     currentColor = Color.yellow;
                     break;
+
+                case StorageItem.ItemType.DirtyBarrel:
+                    currentColor = Color.grey;
+                    break;
+
+                case StorageItem.ItemType.CleanBarrel:
+                    currentColor = Color.blue;
+                    break;
+
+                case StorageItem.ItemType.AllBarel:
+                    currentColor = Color.black;
+                    break;
             }
 
        // Debug.Log("Coloring");
@@ -150,7 +162,6 @@ public class ShelvesOutputZone : MonoBehaviour
 
         if (CharacterBag.characterBag.storageItems.Count < 1)
             return;
-
        
         switch (currentDeployType)
         {
@@ -191,6 +202,30 @@ public class ShelvesOutputZone : MonoBehaviour
                 break;
 
             case StorageItem.ItemType.NoType:
+                parentShelvesController.outputItemsCount += 1;
+                parentShelvesController.SendItem(CharacterBag.characterBag.storageItems[0].currentItemType, itemPrefab);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.NoType, this);
+                break;
+
+            case StorageItem.ItemType.DirtyBarrel:
+                if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.DirtyBarrel))
+                    break;
+
+                parentShelvesController.outputItemsCount += 1;
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.DirtyBarrel, this);
+                parentShelvesController.SendItem(StorageItem.ItemType.DirtyBarrel, itemPrefab);
+                break;
+
+            case StorageItem.ItemType.CleanBarrel:
+                if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.CleanBarrel))
+                    break;
+
+                parentShelvesController.outputItemsCount += 1;
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.CleanBarrel, this);
+                parentShelvesController.SendItem(StorageItem.ItemType.CleanBarrel, itemPrefab);
+                break;
+
+            case StorageItem.ItemType.AllBarel:
                 parentShelvesController.outputItemsCount += 1;
                 parentShelvesController.SendItem(CharacterBag.characterBag.storageItems[0].currentItemType, itemPrefab);
                 CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.NoType, this);

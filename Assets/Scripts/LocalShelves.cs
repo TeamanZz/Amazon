@@ -11,10 +11,11 @@ public class LocalShelves : MonoBehaviour
     public Transform zeroDebugPoint;
     public float itemScaleOnShelf = 1f;
 
-    public Vector2Int shelfDimensions = new Vector2Int(3, 3);
+    public Vector3Int shelfDimensions = new Vector3Int(3, 3, 0);
 
     public float verticalDistance = 1f;
     public float horizontalDistance = 1f;
+    public float backDistance = 0f;
 
     public List<Vector3> itemsPositions = new List<Vector3>();
 
@@ -30,11 +31,25 @@ public class LocalShelves : MonoBehaviour
     public void CheckPositions()
     {
         itemsPositions.Clear();
-        for (int y = 0; y < shelfDimensions.y; y++)
-        {
-            for (int x = 0; x < shelfDimensions.y; x++)
+        for (int y = 0; y < shelfDimensions.y; y++){
+            for (int x = 0; x < shelfDimensions.x; x++)
             {
-                Vector3 newPosition = new Vector3(zeroDebugPoint.position.x + (x * horizontalDistance), zeroDebugPoint.position.y + (y * verticalDistance), zeroDebugPoint.position.z);
+                
+                int z = 0;
+                Vector3 newPosition;
+                //for (y = 0; y < shelfDimensions.y - 1; y++)
+                //{
+                //    newPosition = new Vector3(zeroDebugPoint.position.x + (x * horizontalDistance), zeroDebugPoint.position.y + (y * verticalDistance), zeroDebugPoint.position.z + (z * backDistance));
+                //    itemsPositions.Add(newPosition);
+                //}
+
+                for (z = 0; z < shelfDimensions.z - 1; z++)
+                {
+                    newPosition = new Vector3(zeroDebugPoint.position.x + (x * horizontalDistance), zeroDebugPoint.position.y + (y * verticalDistance), zeroDebugPoint.position.z + (z * backDistance));
+                    itemsPositions.Add(newPosition);
+                }
+
+                newPosition = new Vector3(zeroDebugPoint.position.x + (x * horizontalDistance), zeroDebugPoint.position.y + (y * verticalDistance), zeroDebugPoint.position.z + (z * backDistance));
                 itemsPositions.Add(newPosition);
             }
         }

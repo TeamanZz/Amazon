@@ -20,12 +20,28 @@ public class StorageItem : MonoBehaviour
         BlueBox,
         GreenBox,
         YellowBox,
-        NoType
+        NoType,
+        DirtyBarrel,
+        CleanBarrel,
+        AllBarel
     }
+
+    public GameObject itemBox;
+    public GameObject dirtyBarrel;
+    public GameObject clearBarrel;
 
     [ContextMenu("Coloring")]
     public void Start()
     {
+        if (currentItemType != ItemType.DirtyBarrel || currentItemType != ItemType.CleanBarrel)
+        {
+            dirtyBarrel.SetActive(false);
+            clearBarrel.SetActive(false);
+            itemBox.SetActive(true);
+        }
+        else
+            itemBox.SetActive(false);
+
         switch (currentItemType)
         {
             case ItemType.RedBox:
@@ -46,6 +62,20 @@ public class StorageItem : MonoBehaviour
             case ItemType.YellowBox:
                 //currentRender.material.color = Color.yellow;
                 currentRender.material = materials[3];
+                break;
+
+            case ItemType.DirtyBarrel:
+                dirtyBarrel.SetActive(true);
+                clearBarrel.SetActive(false);
+                
+                itemBox.SetActive(false);
+                break;
+
+            case ItemType.CleanBarrel:
+                dirtyBarrel.SetActive(false);
+                clearBarrel.SetActive(true);
+
+                itemBox.SetActive(false);
                 break;
         }
 

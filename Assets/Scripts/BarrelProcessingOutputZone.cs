@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConveyorOutputZone : MonoBehaviour
+
+public class BarrelProcessingOutputZone : MonoBehaviour
 {
     [Header("Passive settings")]
     public Transform target;
@@ -28,16 +29,15 @@ public class ConveyorOutputZone : MonoBehaviour
     }
 
     public StorageItem itemPrefab;
+
     public StorageItem.ItemType currentDeployType;
-    
-    [Header("Parent Settings")]
-    public Conveyor parentConveyor;
+
+    [Header("Parent")]
+    public BarrelProcessingStation parentBarrelProcessingStation;
 
     public void Awake()
     {
         currentTime = reloadTime;
-        parentConveyor.conveyorOutputZone = this;
-
         ColoringThisZone();
     }
 
@@ -56,29 +56,17 @@ public class ConveyorOutputZone : MonoBehaviour
         else
             switch (currentDeployType)
             {
-                case StorageItem.ItemType.RedBox:
-                    currentColor = Color.red;
+                case StorageItem.ItemType.DirtyBarrel:
+                    currentColor = Color.grey;
                     break;
 
-                case StorageItem.ItemType.BlueBox:
+                case StorageItem.ItemType.CleanBarrel:
                     currentColor = Color.blue;
-                    break;
-
-                case StorageItem.ItemType.GreenBox:
-                    currentColor = Color.green;
-                    break;
-
-                case StorageItem.ItemType.NoType:
-                    currentColor = Color.black;
-                    break;
-
-                case StorageItem.ItemType.YellowBox:
-                    currentColor = Color.yellow;
                     break;
             }
 
-        // Debug.Log("Coloring");
     }
+
     public void Update()
     {
         if (zoneIsActive == false)
@@ -88,19 +76,13 @@ public class ConveyorOutputZone : MonoBehaviour
         if (distance < distanceToCentr)
         {
             targetInPlace = true;
-            parentConveyor.isActive = true;
+            parentBarrelProcessingStation.zoneIsActive = true;
         }
         else
         {
             targetInPlace = false;
-            parentConveyor.isActive = false;
+            parentBarrelProcessingStation.zoneIsActive = false;
         }
-
-        if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumBoxLoadCapacity)
-            parentConveyor.sendToBacpack = false;
-        else
-            parentConveyor.sendToBacpack = true;
-
         //CheckColor();
         centrPoint.color = currentColor;
         Debug.DrawLine(transform.position, target.position, currentColor);
@@ -108,34 +90,60 @@ public class ConveyorOutputZone : MonoBehaviour
         if (!targetInPlace)
             return;
 
-        //if (currentTime <= 0)
-        //{
-        //    currentTime = reloadTime;
-        //    switch (currentZoneState)
-        //    {
-        //        case ZoneState.Receiving:
-        //            ReceivingItem();
-        //            break;
+        if (currentTime <= 0)
+        {
+            currentTime = reloadTime;
+            switch (currentZoneState)
+            {
+                case ZoneState.Receiving:
+                    ReceivingItem();
+                    break;
 
-        //        case ZoneState.Send:
-        //            currentZoneState = ZoneState.Receiving;
-        //            break;
-        //    }
+                case ZoneState.Send:
+                    SendItem();
+                    break;
+            }
 
-        //}
-        //else
-        //    currentTime -= Time.deltaTime;
+        }
+        else
+            currentTime -= Time.deltaTime;
 
     }
-
     //  загрузка в рюкзак
     public void ReceivingItem()
     {
         if (CharacterBag.characterBag == null)
             return;
 
-        Debug.Log("Zone receve");
-        CharacterBag.characterBag.ReceivingItem(itemPrefab, currentDeployType);
+        if (CharacterBag.characterBag.storageItems.Count > 1)
+            return;
 
+        if (parentBarrelProcessingStation.outputItemsCount <= 0)
+            return;
+
+        parentBarrelProcessingStation.outputItemsCount -= 1;
+        parentBarrelProcessingStation.ViewUI();
+        parentBarrelProcessingStation.CheckOutObject();
+
+        CharacterBag.characterBag.ReceivingItem(itemPrefab, StorageItem.ItemType.CleanBarrel);
     }
+
+    //  загрузка в здания
+    public void SendItem()
+    {
+        if (CharacterBag.characterBag == null)
+            return;
+
+        if (CharacterBag.characterBag.storageItems.Count > 1)
+            return;
+
+        //if (CharacterBag.characterBag.storageItems[0].currentItemType != StorageItem.ItemType.DirtyBarrel)
+        //    return;
+
+        Debug.Log("Send");
+        CharacterBag.characterBag.SendBarrelToProcessing(this);
+
+        parentBarrelProcessingStation.ViewUI();
+    }
+
 }

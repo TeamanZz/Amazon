@@ -71,9 +71,19 @@ public class ShelvesController : MonoBehaviour
     {
         if (storageItems.Count < 1)
             return;
+        switch (CharacterBag.characterBag.currentBagType) 
+        {
+            case CharacterBag.BagItemType.box:   
+                if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumBoxLoadCapacity)
+                    return;
+                break;
 
-        if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumLoadCapacity)
-            return;
+            case CharacterBag.BagItemType.barrel:
+                if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumBarrelLoadCapacity)
+                    return;
+            break;
+        }
+
 
         Debug.Log("Controller receve");
         StorageItem item = storageItems[0];

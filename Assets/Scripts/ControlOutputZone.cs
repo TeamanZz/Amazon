@@ -80,6 +80,18 @@ public class ControlOutputZone : MonoBehaviour
                 case StorageItem.ItemType.NoType:
                     currentColor = Color.black;
                     break;
+
+                case StorageItem.ItemType.DirtyBarrel:
+                    currentColor = Color.grey;
+                    break;
+
+                case StorageItem.ItemType.CleanBarrel:
+                    currentColor = Color.blue;
+                    break;
+
+                case StorageItem.ItemType.AllBarel:
+                    currentColor = Color.black;
+                    break;
             }
 
     }
@@ -121,12 +133,45 @@ public class ControlOutputZone : MonoBehaviour
             currentTime -= Time.deltaTime;
 
     }
+
     public void ReceivingItem()
     {
         if (CharacterBag.characterBag == null)
             return;
 
-        StorageItem.ItemType type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
+        StorageItem.ItemType type = StorageItem.ItemType.GreenBox;
+        switch (currentDeployType)
+        {
+            case StorageItem.ItemType.NoType:
+                type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
+                break;
+
+            case StorageItem.ItemType.RedBox:
+                type = StorageItem.ItemType.RedBox;
+                break;
+
+            case StorageItem.ItemType.BlueBox:
+                type = StorageItem.ItemType.BlueBox;
+                break;
+
+            case StorageItem.ItemType.GreenBox:
+                type = StorageItem.ItemType.GreenBox;
+                break;
+
+            case StorageItem.ItemType.YellowBox:
+                type = StorageItem.ItemType.YellowBox;
+                break;
+
+            case StorageItem.ItemType.DirtyBarrel:
+                type = StorageItem.ItemType.DirtyBarrel;
+                break;
+
+            case StorageItem.ItemType.CleanBarrel:
+                type = StorageItem.ItemType.CleanBarrel;
+                break;
+        }
+
+        //StorageItem.ItemType type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
         Debug.Log(type);
         CharacterBag.characterBag.ReceivingItem(itemPrefab, type);
     }
@@ -156,6 +201,15 @@ public class ControlOutputZone : MonoBehaviour
 
             case StorageItem.ItemType.NoType:
                 CharacterBag.characterBag.SendItem(StorageItem.ItemType.NoType, this);
+                break;
+
+
+            case StorageItem.ItemType.DirtyBarrel:
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.DirtyBarrel, this);
+                break;
+
+            case StorageItem.ItemType.CleanBarrel:
+                CharacterBag.characterBag.SendItem(StorageItem.ItemType.CleanBarrel, this);
                 break;
         }
 
