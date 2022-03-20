@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class CharacterBag : MonoBehaviour
 {
+    public float defaultScale = 0.75f;
     public static CharacterBag characterBag;
     public List<StorageItem> storageItems = new List<StorageItem>();
 
@@ -37,7 +38,9 @@ public class CharacterBag : MonoBehaviour
         currentItem.transform.parent = firstPoint;
         itemFlying.transform.parent = firstPoint;
         itemFlying.transform.localPosition = new Vector3(0, (storageItems.Count + 1) * itemScaleInBag, 0);
-        currentItem.transform.localScale = Vector3.one * itemScaleInBag;
+        //currentItem.transform.localScale = Vector3.one * itemScaleInBag;
+        StartCoroutine(IEEnableRendererOnStart(currentItem));
+
         currentItem.transform.localPosition = point; //+ new Vector3(0, 5, 0);
         currentItem.transform.eulerAngles = Vector3.zero;
         itemFlying.FlyTo(new Vector3(0, (storageItems.Count - 1) * itemScaleInBag, 0), currentItem.transform.eulerAngles, type);
@@ -46,6 +49,12 @@ public class CharacterBag : MonoBehaviour
 
         animator.SetBool("IsCarrying", true);
         Debug.Log("Add");
+    }
+    private IEnumerator IEEnableRendererOnStart(StorageItem currentStorage)
+    {
+        currentStorage.transform.localScale = Vector3.zero;
+        yield return new WaitForSeconds(0.4f);
+        currentStorage.transform.DOScale(Vector3.one * defaultScale, 0.1f);
     }
 
     public void PositionsCheck()

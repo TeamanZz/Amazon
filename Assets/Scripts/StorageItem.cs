@@ -49,15 +49,15 @@ public class StorageItem : MonoBehaviour
                 break;
         }
 
-        StartCoroutine(IEEnableRendererOnStart());
+        //StartCoroutine(IEEnableRendererOnStart());
     }
 
-    private IEnumerator IEEnableRendererOnStart()
-    {
-        transform.localScale = Vector3.zero;
-        yield return new WaitForSeconds(0.4f);
-        transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 0.1f);
-    }
+    //private IEnumerator IEEnableRendererOnStart()
+    //{
+    //    transform.localScale = Vector3.zero;
+    //    yield return new WaitForSeconds(0.4f);
+    //    transform.DOScale(Vector3.one * defaultScale, 0.1f);
+    //}
 
     public void ReturnScale()
     {

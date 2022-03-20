@@ -60,7 +60,8 @@ public class ShelvesController : MonoBehaviour
         Vector3 point = positions[storageItems.Count - 1];
 
         currentItem.transform.parent = storageForPrefabs;
-        currentItem.transform.localScale = Vector3.one * itemScaleOnShelf;
+        //currentItem.transform.localScale = Vector3.one * itemScaleOnShelf;
+        currentItem.transform.DOScale(Vector3.one * itemScaleOnShelf, 0.3f).SetEase(Ease.InOutBack);
         currentItem.transform.localPosition = point;
 
         CheckAllPositions();
@@ -79,7 +80,7 @@ public class ShelvesController : MonoBehaviour
         shelvesOutputZone.SendReceivingData(item);
 
         storageItems.Remove(item);
-        storageItems[storageItems.Count - 1].transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
+        //storageItems[storageItems.Count - 1].transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
         Destroy(item.gameObject, 0.3f);
 
         CheckAllPositions();

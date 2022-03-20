@@ -2735,7 +2735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storageItems: []
   firstPoint: {fileID: 116440361}
-  itemScaleInBag: 0.5
+  itemScaleInBag: 0.75
   maximumLoadCapacity: 10
   flyingPrefab: {fileID: 3191045007959916278, guid: b73907981e23870468d67eb7edd908ae, type: 3}
 --- !u!54 &547081715 stripped
