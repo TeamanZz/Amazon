@@ -10,7 +10,7 @@ public class StorageItem : MonoBehaviour
     public float defaultScale = 1f;
 
     [Header("View settings")]
-    public static int itemTypeCount = 3;
+    public static int itemTypeCount = 6;
 
     public List<Material> materials = new List<Material>();
     public ItemType currentItemType;

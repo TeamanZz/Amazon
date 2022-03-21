@@ -138,7 +138,7 @@ public class ShelvesOutputZone : MonoBehaviour
         if (CharacterBag.characterBag == null)
             return;
 
-        if (parentShelvesController.outputItemsCount < 1)
+        if (parentShelvesController.outputItemsCount <= 0)
             return;
 
         Debug.Log("Zone receve");

@@ -304,6 +304,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 096933d946d827d44bcace83606f0110, type: 3}
   - {fileID: 21300000, guid: 9930639b496f5a741bd3cf647e34a0d1, type: 3}
   - {fileID: 21300000, guid: 656dec3b0009b0b45bcc158135ee63fb, type: 3}
+  - {fileID: 21300000, guid: f34edf04149fc2d41bfaf2c26436a5fe, type: 3}
+  - {fileID: 21300000, guid: a3200a0846b90694ea1ab1877026e0b9, type: 3}
   currentDeployType: 0
   iconImage: {fileID: 4687337356251335788}
   currentAmountText: {fileID: 4687337356144134012}

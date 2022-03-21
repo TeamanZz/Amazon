@@ -36,6 +36,15 @@ public class OrderView : MonoBehaviour
             case StorageItem.ItemType.YellowBox:
                 iconImage.sprite = iconsSprites[3];
                 break;
+
+            case StorageItem.ItemType.DirtyBarrel:
+                iconImage.sprite = iconsSprites[4];
+                break;
+
+            case StorageItem.ItemType.CleanBarrel:
+                iconImage.sprite = iconsSprites[5];
+                break;
+
         }
     }
 

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ControlOutputZone : MonoBehaviour
 {
+    public bool isStatick = false;
+    public GameObject spawnerObject;
+    public Animator animator;
+
     [Header("Passive settings")]
     public Transform target;
     public float distanceToCentr = 0.5f;
@@ -41,6 +45,12 @@ public class ControlOutputZone : MonoBehaviour
 
     public void Awake()
     {
+        if (isStatick == true)
+        {
+            animator = spawnerObject.GetComponent<Animator>();
+            animator.SetBool("Open", false);
+        }
+
         currentTime = reloadTime;
 
         ColoringThisZone();
@@ -103,10 +113,17 @@ public class ControlOutputZone : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, target.position);
         if (distance < distanceToCentr)
+        {
             targetInPlace = true;
+            if (animator != null)
+                animator.SetBool("Open", true);
+        }
         else
+        {
             targetInPlace = false;
-
+            if(animator != null)
+                animator.SetBool("Open", false);
+        }
         //CheckColor();
         centrPoint.color = currentColor;
         Debug.DrawLine(transform.position, target.position, currentColor);
@@ -202,7 +219,6 @@ public class ControlOutputZone : MonoBehaviour
             case StorageItem.ItemType.NoType:
                 CharacterBag.characterBag.SendItem(StorageItem.ItemType.NoType, this);
                 break;
-
 
             case StorageItem.ItemType.DirtyBarrel:
                 CharacterBag.characterBag.SendItem(StorageItem.ItemType.DirtyBarrel, this);
