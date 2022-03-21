@@ -6,10 +6,10 @@ public class DeployController : MonoBehaviour
 {
     public List<ControlOutputZone> outputZone = new List<ControlOutputZone>();
 
-    public bool allow€hipping = false;
+    public bool allowShipping = false;
     public void Update()
     {
-        if (allow€hipping == false)
+        if (allowShipping == false)
             return;
 
 

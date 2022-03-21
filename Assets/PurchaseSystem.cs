@@ -24,7 +24,7 @@ public class PurchaseSystem : MonoBehaviour
     [ContextMenu("Awake")]
     public void Awake()
     {
-        constructionZone.SetActive(true);
+        constructionZone.SetActive(false);
 
         zone.SetActive(false);
         purchasedObject.SetActive(false);
@@ -55,7 +55,7 @@ public class PurchaseSystem : MonoBehaviour
             targetInPlace = false;
         }
 
-        if(MoneyController.moneyController.currentMoney > currentObjectPrice && targetInPlace == true)
+        if (MoneyController.moneyController.currentMoney > currentObjectPrice && targetInPlace == true)
         {
             BuyAnObject();
         }

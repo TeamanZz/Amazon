@@ -255,6 +255,10 @@ PrefabInstance:
       value: SI_Env_Wall_Door_Large_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -323,6 +327,10 @@ PrefabInstance:
     - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_Name
       value: SI_Env_Wall_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_RootOrder
@@ -529,6 +537,10 @@ PrefabInstance:
       value: SI_Prop_FireExtinguisher_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 189788, guid: 7dfe1af514711a040a32a7607a83055b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 189788, guid: 7dfe1af514711a040a32a7607a83055b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -713,6 +725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -769,6 +785,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -1113,6 +1133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -1330,6 +1354,10 @@ PrefabInstance:
       value: SI_Prop_FireExtinguisher_01
       objectReference: {fileID: 0}
     - target: {fileID: 189788, guid: 7dfe1af514711a040a32a7607a83055b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 189788, guid: 7dfe1af514711a040a32a7607a83055b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -1399,6 +1427,10 @@ PrefabInstance:
       value: SI_Env_Wall_Door_Large_01
       objectReference: {fileID: 0}
     - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -1452,6 +1484,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
+--- !u!1 &371517656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+  m_PrefabInstance: {fileID: 1484422540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &371517657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371517656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.000002, y: 4.6851273, z: 0.05487466}
+  m_Center: {x: -2.500001, y: 2.0719004, z: 0.02743733}
 --- !u!1 &374026934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -1704,6 +1758,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -1829,6 +1887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1945,6 +2007,10 @@ PrefabInstance:
     - target: {fileID: 6646876623681006566, guid: e40bfa9f67757d94caaa74c435de3140, type: 3}
       propertyPath: m_Name
       value: BuyZone-Pallet (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646876623681006566, guid: e40bfa9f67757d94caaa74c435de3140, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6646876624161348831, guid: e40bfa9f67757d94caaa74c435de3140, type: 3}
       propertyPath: target
@@ -2137,6 +2203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2314,6 +2384,10 @@ PrefabInstance:
     - target: {fileID: 4677712207377868569, guid: bfb61a299149ace458d74a29d699c118, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677712207377868569, guid: bfb61a299149ace458d74a29d699c118, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4677712207377868574, guid: bfb61a299149ace458d74a29d699c118, type: 3}
       propertyPath: m_Material
@@ -2545,6 +2619,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2703,6 +2781,24 @@ Transform:
   m_Father: {fileID: 1403568657}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &633662888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+  m_PrefabInstance: {fileID: 682164222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &633662889
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633662888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.000002, y: 4.6851273, z: 0.05487466}
+  m_Center: {x: -2.500001, y: 2.0719004, z: 0.02743733}
 --- !u!1001 &640640553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2713,6 +2809,10 @@ PrefabInstance:
     - target: {fileID: 5571643223686295402, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
       propertyPath: m_Name
       value: TrashCan (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571643223686295402, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5571643223686295405, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
       propertyPath: m_RootOrder
@@ -2814,6 +2914,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -3046,6 +3150,10 @@ PrefabInstance:
       value: SI_Env_Wall_01 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -3101,7 +3209,8 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4162805226535588905, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
 --- !u!114 &684387262 stripped
 MonoBehaviour:
@@ -3130,9 +3239,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Wall_01 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_LocalScale.x
@@ -3461,6 +3574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeliveryMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 4398135196627130476, guid: f8d43f39ddcd06845a3f1328895b5765, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4398135196627130477, guid: f8d43f39ddcd06845a3f1328895b5765, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3598,6 +3715,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -3807,6 +3928,10 @@ PrefabInstance:
     - target: {fileID: 175212, guid: 0f0a4e1f37ea46248b01f68d63a1339e, type: 3}
       propertyPath: m_Name
       value: SI_Prop_SignCaution_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 175212, guid: 0f0a4e1f37ea46248b01f68d63a1339e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 175212, guid: 0f0a4e1f37ea46248b01f68d63a1339e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4067,6 +4192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -4157,6 +4286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -4213,6 +4346,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -4503,6 +4640,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889511340}
   m_CullTransparentMesh: 1
+--- !u!1 &909622272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+  m_PrefabInstance: {fileID: 1094079570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &909622273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909622272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0000033, y: 4.685127, z: 0.054874673}
+  m_Center: {x: -2.5000017, y: 2.0719001, z: 0.027437337}
 --- !u!1 &946435501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,6 +4732,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1459576574}
     m_Modifications:
+    - target: {fileID: 2186298056604342893, guid: f8d43f39ddcd06845a3f1328895b5765, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5260c8fe93b5f1d46a06f92cd1b80e5c, type: 2}
     - target: {fileID: 4398135196364122089, guid: f8d43f39ddcd06845a3f1328895b5765, type: 3}
       propertyPath: target
       value: 
@@ -4584,6 +4743,10 @@ PrefabInstance:
     - target: {fileID: 4398135196627130476, guid: f8d43f39ddcd06845a3f1328895b5765, type: 3}
       propertyPath: m_Name
       value: DeliveryMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4398135196627130476, guid: f8d43f39ddcd06845a3f1328895b5765, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4398135196627130477, guid: f8d43f39ddcd06845a3f1328895b5765, type: 3}
       propertyPath: m_RootOrder
@@ -4795,6 +4958,10 @@ PrefabInstance:
       value: SI_Env_Wall_Door_Large_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -4867,6 +5034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -4924,6 +5095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Wall_01
       objectReference: {fileID: 0}
+    - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4980,7 +5155,8 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4162805226535588905, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
 --- !u!1001 &1095781915
 PrefabInstance:
@@ -4992,6 +5168,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -5350,6 +5530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -5508,6 +5692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -5564,6 +5752,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -5629,6 +5821,10 @@ PrefabInstance:
     - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
       propertyPath: m_Name
       value: SI_Env_Wall_Door_Large_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5714,6 +5910,10 @@ PrefabInstance:
       value: SI_Prop_Ladder_01
       objectReference: {fileID: 0}
     - target: {fileID: 155798, guid: 2031cdab3b415cb4886c2bab4045aaa6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 155798, guid: 2031cdab3b415cb4886c2bab4045aaa6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -5759,6 +5959,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461220, guid: 2031cdab3b415cb4886c2bab4045aaa6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310366, guid: 2031cdab3b415cb4886c2bab4045aaa6, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5899,7 +6103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outputZone: []
-  "allow\u042Bhipping": 0
+  allowShipping: 0
 --- !u!1001 &1415351623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5910,6 +6114,10 @@ PrefabInstance:
     - target: {fileID: 160820, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
       propertyPath: m_Name
       value: SI_Env_Floor_05 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 160820, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 453304, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
       propertyPath: m_RootOrder
@@ -6034,6 +6242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-ShelvesAll (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3722529023329370378, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3722529024650304680, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
       propertyPath: target
       value: 
@@ -6154,6 +6366,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -6407,6 +6623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5571643223686295402, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5571643223686295405, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6565,6 +6785,10 @@ PrefabInstance:
       value: SI_Env_Wall_01 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -6620,7 +6844,8 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4162805226535588905, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
 --- !u!114 &1493606260 stripped
 MonoBehaviour:
@@ -6808,6 +7033,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -7030,6 +7259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Floor_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 160820, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 453304, guid: e1bcf5116a513bb418c1fe62258737c2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7110,6 +7343,10 @@ PrefabInstance:
       value: SI_Env_Wall_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7165,7 +7402,8 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4162805226535588905, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
 --- !u!1001 &1769720309
 PrefabInstance:
@@ -7177,6 +7415,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -7475,6 +7717,10 @@ PrefabInstance:
       value: SI_Prop_Vending_Machine
       objectReference: {fileID: 0}
     - target: {fileID: 190670, guid: 2df0226b588df834d9f324cd8f0f3b66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 190670, guid: 2df0226b588df834d9f324cd8f0f3b66, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7687,6 +7933,10 @@ PrefabInstance:
     - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_Name
       value: Bush (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
@@ -7985,6 +8235,10 @@ PrefabInstance:
       value: SI_Env_Wall_Door_Large_01 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144600, guid: 00edc3f5b4f87a845abcae8cc37c7dcf, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -8231,6 +8485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-Pallet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6646876623681006566, guid: e40bfa9f67757d94caaa74c435de3140, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6646876624161348831, guid: e40bfa9f67757d94caaa74c435de3140, type: 3}
       propertyPath: target
       value: 
@@ -8267,6 +8525,10 @@ PrefabInstance:
     - target: {fileID: 190670, guid: 2df0226b588df834d9f324cd8f0f3b66, type: 3}
       propertyPath: m_Name
       value: SI_Prop_Vending_Machine (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 190670, guid: 2df0226b588df834d9f324cd8f0f3b66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 190670, guid: 2df0226b588df834d9f324cd8f0f3b66, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8353,6 +8615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SI_Env_Wall_01
       objectReference: {fileID: 0}
+    - target: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8367,7 +8633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15
+      value: -15.25
       objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8375,7 +8641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.07
+      value: 34.94
       objectReference: {fileID: 0}
     - target: {fileID: 475300, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8593,6 +8859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2585644765386798732, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930117787307879478, guid: 63153e7c4fd25a544b671e352c4156d8, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -8738,6 +9008,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3722529023680816421, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3722529023680816421, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722529023680816421, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3722529024650304680, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
       propertyPath: target
       value: 
@@ -8772,6 +9054,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd9b06d4d35ec04c897f29ba0877fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2098455429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 123870, guid: 51f833eeb14fde142b366866ec47c9be, type: 3}
+  m_PrefabInstance: {fileID: 1734514138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2098455430
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098455429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.000002, y: 4.6851273, z: 0.05487466}
+  m_Center: {x: -2.500001, y: 2.0719004, z: 0.02743733}
 --- !u!1 &2112798072
 GameObject:
   m_ObjectHideFlags: 0
@@ -8881,6 +9181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-DeployZone
       objectReference: {fileID: 0}
+    - target: {fileID: 37986053951623533, guid: 7ea850cebe80d4141985fd28ae6aa764, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 37986053951623534, guid: 7ea850cebe80d4141985fd28ae6aa764, type: 3}
       propertyPath: target
       value: 
@@ -8946,9 +9250,21 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 547081717}
+    - target: {fileID: 3154410992821915767, guid: 7fd6e284a8294b746be177e8c87d95a6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3154410992821915767, guid: 7fd6e284a8294b746be177e8c87d95a6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3154410993283973874, guid: 7fd6e284a8294b746be177e8c87d95a6, type: 3}
       propertyPath: m_Name
       value: BuyZone-GreenConveyor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154410993283973874, guid: 7fd6e284a8294b746be177e8c87d95a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3154410993283973875, guid: 7fd6e284a8294b746be177e8c87d95a6, type: 3}
       propertyPath: target
@@ -9063,6 +9379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-ShelvesAll
       objectReference: {fileID: 0}
+    - target: {fileID: 3722529023329370378, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3722529024650304680, guid: b8127f7679ef80e40be2ad7174ec4d1a, type: 3}
       propertyPath: target
       value: 
@@ -9145,6 +9465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-RedConveyor
       objectReference: {fileID: 0}
+    - target: {fileID: 4731855080349274270, guid: 13c96230404483a4a93ed1b0d2fce77b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4731855080349274271, guid: 13c96230404483a4a93ed1b0d2fce77b, type: 3}
       propertyPath: target
       value: 
@@ -9153,6 +9477,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 547081717}
+    - target: {fileID: 4731855082213571591, guid: 13c96230404483a4a93ed1b0d2fce77b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731855082243211951, guid: 13c96230404483a4a93ed1b0d2fce77b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4731855082243211951, guid: 13c96230404483a4a93ed1b0d2fce77b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c96230404483a4a93ed1b0d2fce77b, type: 3}
 --- !u!1001 &6121954159210284191
@@ -9463,6 +9799,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-BlueConveyor
       objectReference: {fileID: 0}
+    - target: {fileID: 6551295004515598981, guid: 66fa31275efbbb948ab39d2a41231163, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551295005915892042, guid: 66fa31275efbbb948ab39d2a41231163, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6551295005915892042, guid: 66fa31275efbbb948ab39d2a41231163, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66fa31275efbbb948ab39d2a41231163, type: 3}
 --- !u!1001 &6646876624637408405
@@ -9536,6 +9884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-Pallet
       objectReference: {fileID: 0}
+    - target: {fileID: 6646876623681006566, guid: e40bfa9f67757d94caaa74c435de3140, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6646876624161348831, guid: e40bfa9f67757d94caaa74c435de3140, type: 3}
       propertyPath: target
       value: 
@@ -9556,6 +9908,10 @@ PrefabInstance:
     - target: {fileID: 5571643223686295402, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
       propertyPath: m_Name
       value: TrashCan
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571643223686295402, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5571643223686295405, guid: 3a28b83b5086045408fd5be2581d286b, type: 3}
       propertyPath: m_RootOrder
@@ -9682,6 +10038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyZone-OutputBarrelZone
       objectReference: {fileID: 0}
+    - target: {fileID: 9109154793834720031, guid: 1a2b1a81224145842907850e7f10f9d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a2b1a81224145842907850e7f10f9d3, type: 3}
 --- !u!1001 &9208189642808088649
@@ -9786,6 +10146,10 @@ PrefabInstance:
     - target: {fileID: 9208189641014770854, guid: c12a520e2be894849b65d119d2c4141b, type: 3}
       propertyPath: m_Name
       value: BuyZone-BarrelProcessing
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208189641014770854, guid: c12a520e2be894849b65d119d2c4141b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9208189641014770872, guid: c12a520e2be894849b65d119d2c4141b, type: 3}
       propertyPath: m_RootOrder
