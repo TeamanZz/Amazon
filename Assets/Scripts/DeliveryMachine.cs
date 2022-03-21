@@ -23,7 +23,7 @@ public class DeliveryMachine : MonoBehaviour
     public int maxAmountCount = 20;
 
     [Header("View settings")]
-    public Image orderImageColoring;
+    // public Image orderImageColoring;
     public TextMeshProUGUI orderAmountText;
     public OrderView orderViewChild;
 
@@ -47,6 +47,14 @@ public class DeliveryMachine : MonoBehaviour
         ReceivingAnOrder();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            MoveToGates();
+        }
+    }
+
     [ContextMenu("Receiving Order")]
     public void ReceivingAnOrder()
     {
@@ -63,7 +71,7 @@ public class DeliveryMachine : MonoBehaviour
         deliveryData.currentAmount = 0;
 
         outputZone.ChangeZoneSendType(deliveryData.orderType);
-        orderImageColoring.color = outputZone.currentColor;
+        // orderImageColoring.color = outputZone.currentColor;
 
         outputZone.zoneIsActive = true;
     }
@@ -120,7 +128,7 @@ public class DeliveryMachine : MonoBehaviour
         outputZone.zoneIsActive = false;
         outputZone.currentColor = Color.white;
         outputZone.centrPoint.color = Color.white;
-        orderImageColoring.color = outputZone.currentColor;
+        // orderImageColoring.color = outputZone.currentColor;
 
         orderAmountText.text = "";
         deliveryData = null;
