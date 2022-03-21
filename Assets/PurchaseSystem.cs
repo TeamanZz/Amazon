@@ -72,4 +72,9 @@ public class PurchaseSystem : MonoBehaviour
 
         enabled = false;
     }
+
+    public void SendCurrentState()
+    {
+        OrdersController.ordersController.CheckSystem(this);
+    }
 }
