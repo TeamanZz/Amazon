@@ -115,13 +115,14 @@ public class ControlOutputZone : MonoBehaviour
         if (distance < distanceToCentr)
         {
             targetInPlace = true;
+
             if (animator != null)
                 animator.SetBool("Open", true);
         }
         else
         {
             targetInPlace = false;
-            if(animator != null)
+            if (animator != null)
                 animator.SetBool("Open", false);
         }
         //CheckColor();
@@ -237,7 +238,7 @@ public class ControlOutputZone : MonoBehaviour
         switch (currentZoneType)
         {
             case ZoneType.Statick:
-                //  íèõóÿ
+                //  ï¿½ï¿½ï¿½ï¿½ï¿½
                 break;
 
             case ZoneType.Active:

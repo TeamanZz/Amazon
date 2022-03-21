@@ -14,7 +14,7 @@ public class ProcessingStation : MonoBehaviour
     public int currentAmountCount = 0;
 
     //public List<int> amounts = new List<int>();
-    public int[] amounts = {0,0,0};
+    public int[] amounts = { 0, 0, 0 };
 
     public TextMeshProUGUI redZone;
     public TextMeshProUGUI yellowZone;
@@ -53,7 +53,7 @@ public class ProcessingStation : MonoBehaviour
         ViewUI();
 
         fillingImage.fillAmount = 0;
-        scaleFactor = 0.92f /* 1f*/ / reloadTime * 0.03f;
+        scaleFactor = 1 /* 1f*/ / reloadTime * 0.0065f;
         currentTime = reloadTime;
     }
 
@@ -68,7 +68,7 @@ public class ProcessingStation : MonoBehaviour
 
     public void CheckProcessing(int colorNumber)
     {
-        scaleFactor = 1f / reloadTime * 0.03f;
+        scaleFactor = 1 /* 1f*/ / reloadTime * 0.0065f;
 
         switch (colorNumber)
         {
@@ -101,7 +101,7 @@ public class ProcessingStation : MonoBehaviour
         else
             targetInPlace = false;
 
-        if ((amounts[0] <= 0 || amounts[1] <= 0 || amounts[2] <= 0 )|| outputItemsCount >= maxOutputCount)
+        if ((amounts[0] <= 0 || amounts[1] <= 0 || amounts[2] <= 0) || outputItemsCount >= maxOutputCount)
             return;
 
         centrPoint.color = currentColor;
@@ -116,11 +116,11 @@ public class ProcessingStation : MonoBehaviour
             currentTime = reloadTime;
             //if (amounts[0] > 0 && amounts[1] > 0 && amounts[2] > 0) //|| outputItemsCount >= maxOutputCount)
             //{
-                amounts[2] -= 1;
-                amounts[1] -= 1;
-                amounts[0] -= 1;
+            amounts[2] -= 1;
+            amounts[1] -= 1;
+            amounts[0] -= 1;
 
-                outputItemsCount += 1;
+            outputItemsCount += 1;
             //}
         }
         else

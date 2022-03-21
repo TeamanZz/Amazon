@@ -67,8 +67,8 @@ public class BarrelProcessingStation : MonoBehaviour
     {
         if (currentAmountCount >= maximumAmountCount)
             return;
-
-        scaleFactor = 1f / reloadTime * 0.03f;
+        Debug.Log("CHECK SIA");
+        scaleFactor = 1f / reloadTime * 0.0065f;
 
         currentAmountCount += 1;
 
@@ -80,7 +80,7 @@ public class BarrelProcessingStation : MonoBehaviour
         if (zoneIsActive == false)
             return;
 
-        if (currentAmountCount <= 0 && currentAmountCount >  maximumAmountCount)
+        if (currentAmountCount <= 0 && currentAmountCount > maximumAmountCount)
             return;
 
         if (outputItemsCount < 0 || outputItemsCount >= maxOutputCount)

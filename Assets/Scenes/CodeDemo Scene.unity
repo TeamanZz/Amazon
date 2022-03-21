@@ -10254,6 +10254,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 547081717}
+    - target: {fileID: 6121954158389187869, guid: 6f1934e456afa3e4bbe1477f8863cf50, type: 3}
+      propertyPath: currentColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121954158389187869, guid: 6f1934e456afa3e4bbe1477f8863cf50, type: 3}
+      propertyPath: currentColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121954158389187869, guid: 6f1934e456afa3e4bbe1477f8863cf50, type: 3}
+      propertyPath: currentColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6121954158389187870, guid: 6f1934e456afa3e4bbe1477f8863cf50, type: 3}
       propertyPath: m_IsActive
       value: 1
