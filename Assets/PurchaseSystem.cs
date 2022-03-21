@@ -28,6 +28,7 @@ public class PurchaseSystem : MonoBehaviour
 
         zone.SetActive(false);
         purchasedObject.SetActive(false);
+        zoneIsActive = false;
     }
 
     [ContextMenu("Initialization")]
@@ -35,7 +36,8 @@ public class PurchaseSystem : MonoBehaviour
     {
         zone.SetActive(true);
         purchasedObject.SetActive(false);
-        priceText.text = currentObjectPrice.ToString() + "$"; 
+        priceText.text = currentObjectPrice.ToString() + "$";
+        zoneIsActive = true;
     }
 
     public void Update()
