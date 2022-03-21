@@ -25,17 +25,16 @@ public class PurchaseSystem : MonoBehaviour
     public void Awake()
     {
         constructionZone.SetActive(false);
-
         zone.SetActive(false);
-        purchasedObject.SetActive(false);
+        // purchasedObject.SetActive(false);
         zoneIsActive = false;
     }
 
     [ContextMenu("Initialization")]
     public void InitializationObject()
     {
-        zone.SetActive(true);
-        purchasedObject.SetActive(false);
+        // zone.SetActive(true);
+        // purchasedObject.SetActive(false);
         priceText.text = currentObjectPrice.ToString() + "$";
         zoneIsActive = true;
     }

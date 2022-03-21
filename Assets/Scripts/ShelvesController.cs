@@ -71,9 +71,9 @@ public class ShelvesController : MonoBehaviour
     {
         if (storageItems.Count < 1)
             return;
-        switch (CharacterBag.characterBag.currentBagType) 
+        switch (CharacterBag.characterBag.currentBagType)
         {
-            case CharacterBag.BagItemType.box:   
+            case CharacterBag.BagItemType.box:
                 if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumBoxLoadCapacity)
                     return;
                 break;
@@ -81,7 +81,7 @@ public class ShelvesController : MonoBehaviour
             case CharacterBag.BagItemType.barrel:
                 if (CharacterBag.characterBag.storageItems.Count >= CharacterBag.characterBag.maximumBarrelLoadCapacity)
                     return;
-            break;
+                break;
         }
 
 
@@ -90,7 +90,7 @@ public class ShelvesController : MonoBehaviour
         shelvesOutputZone.SendReceivingData(item);
 
         storageItems.Remove(item);
-        //storageItems[storageItems.Count - 1].transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
+        item.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
         Destroy(item.gameObject, 0.3f);
 
         CheckAllPositions();
