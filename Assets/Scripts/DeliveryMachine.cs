@@ -36,7 +36,7 @@ public class DeliveryMachine : MonoBehaviour
 
     public Transform leftDoor;
     public Transform rightDoor;
-
+    public List<GameObject> particles = new List<GameObject>();
     [ContextMenu("Moved To Deploy")]
     public void MoveToGates()
     {
@@ -132,7 +132,7 @@ public class DeliveryMachine : MonoBehaviour
 
         orderAmountText.text = "";
         deliveryData = null;
-
+        particles[0].SetActive(true);
         ClosedDoor();
         OrderViewController.viewController.RemovePanel(orderViewChild);
 

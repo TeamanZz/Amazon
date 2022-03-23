@@ -40,7 +40,7 @@ public class ProcessingStation : MonoBehaviour
 
     public int maxOutputCount = 15;
     public int outputItemsCount = 0;
-
+    public GameObject particle;
     public void Awake()
     {
         zoneIsActive = true;
@@ -122,6 +122,7 @@ public class ProcessingStation : MonoBehaviour
 
             outputItemsCount += 1;
             //}
+            particle.SetActive(true);
         }
         else
         {
