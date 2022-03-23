@@ -68,7 +68,7 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 case StorageItem.ItemType.NoType:
-                    currentColor = Color.black;
+                    currentColor = Color.white;
                     break;
 
                 case StorageItem.ItemType.YellowBox:
@@ -84,20 +84,20 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 case StorageItem.ItemType.AllBarel:
-                    currentColor = Color.black;
+                    currentColor = Color.white;
                     break;
             }
 
-       // Debug.Log("Coloring");
+        // Debug.Log("Coloring");
     }
     public void Update()
     {
         if (zoneIsActive == false)
             return;
 
-        if(currentDeployType != parentShelvesController.currentDeployType)
+        if (currentDeployType != parentShelvesController.currentDeployType)
             ChangeZoneSendType(parentShelvesController.currentDeployType);
-        
+
 
         float distance = Vector3.Distance(transform.position, target.position);
         if (distance < distanceToCentr)
@@ -132,7 +132,7 @@ public class ShelvesOutputZone : MonoBehaviour
 
     }
 
-    //  загрузка в рюкзак
+    //  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public void ReceivingItem()
     {
         if (CharacterBag.characterBag == null)
@@ -162,7 +162,7 @@ public class ShelvesOutputZone : MonoBehaviour
 
         if (CharacterBag.characterBag.storageItems.Count < 1)
             return;
-       
+
         switch (currentDeployType)
         {
             case StorageItem.ItemType.RedBox:

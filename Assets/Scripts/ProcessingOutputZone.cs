@@ -56,19 +56,19 @@ public class ProcessingOutputZone : MonoBehaviour
             switch (currentDeployType)
             {
                 case StorageItem.ItemType.RedBox:
-                    currentColor = Color.red;
+                    currentColor = new Color(0.8207547f, 0.2284176f, 0.2801296f);
                     break;
 
                 case StorageItem.ItemType.BlueBox:
-                    currentColor = Color.blue;
+                    currentColor = new Color(0.5364009f, 0.7325992f, 0.9245283f);
                     break;
 
                 case StorageItem.ItemType.GreenBox:
-                    currentColor = Color.green;
+                    currentColor = new Color(0.114142f, 0.8962264f, 0.4832793f);
                     break;
 
                 case StorageItem.ItemType.NoType:
-                    currentColor = Color.black;
+                    currentColor = Color.white;
                     break;
 
                 case StorageItem.ItemType.YellowBox:
@@ -77,7 +77,7 @@ public class ProcessingOutputZone : MonoBehaviour
             }
 
     }
-   
+
     public void Update()
     {
         if (zoneIsActive == false)
@@ -115,7 +115,7 @@ public class ProcessingOutputZone : MonoBehaviour
             currentTime -= Time.deltaTime;
 
     }
-    //  загрузка в рюкзак
+    //  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public void ReceivingItem()
     {
         if (CharacterBag.characterBag == null)
@@ -133,7 +133,7 @@ public class ProcessingOutputZone : MonoBehaviour
         CharacterBag.characterBag.ReceivingItem(itemPrefab, type);
     }
 
-    //  загрузка в здания
+    //  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public void SendItem()
     {
         if (CharacterBag.characterBag == null)

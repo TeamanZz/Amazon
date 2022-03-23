@@ -66,8 +66,8 @@ public class DeliveryMachine : MonoBehaviour
         deliveryData = null;
 
         deliveryData = new CurrentDeliveryData();
-        deliveryData.orderType = (StorageItem.ItemType)UnityEngine.Random.Range(0, StorageItem.itemTypeCount + 1);
-        deliveryData.correctAmount = UnityEngine.Random.Range(minAmountCount, maxAmountCount);
+        deliveryData.orderType = StorageItem.ItemType.YellowBox;
+        deliveryData.correctAmount = 1;
         deliveryData.currentAmount = 0;
 
         outputZone.ChangeZoneSendType(deliveryData.orderType);

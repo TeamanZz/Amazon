@@ -72,15 +72,15 @@ public class ControlOutputZone : MonoBehaviour
             switch (currentDeployType)
             {
                 case StorageItem.ItemType.RedBox:
-                    currentColor = Color.red;
+                    currentColor = new Color(0.8207547f, 0.2284176f, 0.2801296f);
                     break;
 
                 case StorageItem.ItemType.BlueBox:
-                    currentColor = Color.blue;
+                    currentColor = new Color(0.5364009f, 0.7325992f, 0.9245283f);
                     break;
 
                 case StorageItem.ItemType.GreenBox:
-                    currentColor = Color.green;
+                    currentColor = new Color(0.114142f, 0.8962264f, 0.4832793f);
                     break;
 
                 case StorageItem.ItemType.YellowBox:
@@ -88,7 +88,7 @@ public class ControlOutputZone : MonoBehaviour
                     break;
 
                 case StorageItem.ItemType.NoType:
-                    currentColor = Color.black;
+                    currentColor = Color.white;
                     break;
 
                 case StorageItem.ItemType.DirtyBarrel:
@@ -100,7 +100,7 @@ public class ControlOutputZone : MonoBehaviour
                     break;
 
                 case StorageItem.ItemType.AllBarel:
-                    currentColor = Color.black;
+                    currentColor = Color.white;
                     break;
             }
 
@@ -115,13 +115,15 @@ public class ControlOutputZone : MonoBehaviour
         if (distance < distanceToCentr)
         {
             targetInPlace = true;
-
+            Debug.Log("PPPPPPPPP");
             if (animator != null)
                 animator.SetBool("Open", true);
         }
         else
         {
             targetInPlace = false;
+            Debug.Log("zzzzzzzzz");
+
             if (animator != null)
                 animator.SetBool("Open", false);
         }

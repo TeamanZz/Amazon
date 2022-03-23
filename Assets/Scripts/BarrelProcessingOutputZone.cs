@@ -57,7 +57,7 @@ public class BarrelProcessingOutputZone : MonoBehaviour
             switch (currentDeployType)
             {
                 case StorageItem.ItemType.DirtyBarrel:
-                    currentColor = Color.grey;
+                    currentColor = Color.white;
                     break;
 
                 case StorageItem.ItemType.CleanBarrel:
@@ -109,7 +109,7 @@ public class BarrelProcessingOutputZone : MonoBehaviour
             currentTime -= Time.deltaTime;
 
     }
-    //  загрузка в рюкзак
+    //  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public void ReceivingItem()
     {
         if (CharacterBag.characterBag == null)
@@ -128,7 +128,7 @@ public class BarrelProcessingOutputZone : MonoBehaviour
         CharacterBag.characterBag.ReceivingItem(itemPrefab, StorageItem.ItemType.CleanBarrel);
     }
 
-    //  загрузка в здания
+    //  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     public void SendItem()
     {
         if (CharacterBag.characterBag == null)
