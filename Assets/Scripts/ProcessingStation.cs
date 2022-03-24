@@ -68,7 +68,7 @@ public class ProcessingStation : MonoBehaviour
 
     public void CheckProcessing(int colorNumber)
     {
-        scaleFactor = 1 /* 1f*/ / reloadTime * 0.0065f;
+        scaleFactor = 1 /* 1f*/ / reloadTime * 0.028f;
 
         switch (colorNumber)
         {
@@ -89,7 +89,7 @@ public class ProcessingStation : MonoBehaviour
         ViewUI();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (zoneIsActive == false)
             return;

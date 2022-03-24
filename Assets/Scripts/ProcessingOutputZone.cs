@@ -78,7 +78,7 @@ public class ProcessingOutputZone : MonoBehaviour
 
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (zoneIsActive == false)
             return;
