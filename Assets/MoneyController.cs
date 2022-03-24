@@ -9,7 +9,7 @@ public class MoneyController : MonoBehaviour
     [Header("Main Settings")]
     public static MoneyController moneyController;
 
-    public int currentMoney = 100000;
+    public int currentMoney = 500;
     [Header("View Settings")]
     public TextMeshProUGUI currentMoneyText;
 

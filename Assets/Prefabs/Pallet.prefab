@@ -83,10 +83,10 @@ MonoBehaviour:
   horizontalDistance: 1.75
   backDistance: 1.75
   itemsPositions:
-  - {x: 8.875, y: 0.75000006, z: -13.401999}
-  - {x: 8.875, y: 0.75000006, z: -11.651999}
-  - {x: 10.625, y: 0.75000006, z: -13.401999}
-  - {x: 10.625, y: 0.75000006, z: -11.651999}
+  - {x: 8.875, y: 0.75000006, z: -18.402}
+  - {x: 8.875, y: 0.75000006, z: -16.652}
+  - {x: 10.625, y: 0.75000006, z: -18.402}
+  - {x: 10.625, y: 0.75000006, z: -16.652}
 --- !u!1 &8646228622811456283
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6c59608aa21b88d43b25acf9adb577f1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b1b760c444544e04a9632719a883073b, type: 2}
+      objectReference: {fileID: 2100000, guid: 53fd22e11e91af148bc663a8f613e73e, type: 2}
     - target: {fileID: 919132149155446097, guid: 6c59608aa21b88d43b25acf9adb577f1, type: 3}
       propertyPath: m_Name
       value: Pallet

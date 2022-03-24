@@ -17,11 +17,13 @@ public class OrdersController : MonoBehaviour
         ordersController = this;
     }
 
+    [ContextMenu("Start")]
     public void Start()
     {
         foreach(var purch in purchaseSystems)
         {
-            purch.Awake();
+            purch.InitializationObject();
+            purch.zoneIsActive = true;
         }
     }
 

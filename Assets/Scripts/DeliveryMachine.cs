@@ -37,6 +37,8 @@ public class DeliveryMachine : MonoBehaviour
     public Transform leftDoor;
     public Transform rightDoor;
 
+    public int orderPrice = 100;
+
     [ContextMenu("Moved To Deploy")]
     public void MoveToGates()
     {
@@ -130,5 +132,8 @@ public class DeliveryMachine : MonoBehaviour
 
         carTransform.DOMoveX(endPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
         carTransform.DOShakeRotation(2, strength: 5, 10);
+
+        MoneyController.moneyController.currentMoney += orderPrice;
+        MoneyController.moneyController.UpdateUI();
     }
 }
