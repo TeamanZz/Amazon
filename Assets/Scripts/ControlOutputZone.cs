@@ -10,7 +10,7 @@ public class ControlOutputZone : MonoBehaviour
     public Animator animator;
 
     [Header("Passive settings")]
-    public Transform target;
+    //public Transform target;
     public float distanceToCentr = 0.5f;
 
     [Header("Active settings")]
@@ -111,25 +111,24 @@ public class ControlOutputZone : MonoBehaviour
         if (zoneIsActive == false)
             return;
 
-        float distance = Vector3.Distance(transform.position, target.position);
+        float distance = Vector3.Distance(transform.position, PlayerMovement.targetPlayer.position);
         if (distance < distanceToCentr)
         {
             targetInPlace = true;
-            Debug.Log("PPPPPPPPP");
+            
             if (animator != null)
                 animator.SetBool("Open", true);
         }
         else
         {
             targetInPlace = false;
-            Debug.Log("zzzzzzzzz");
 
             if (animator != null)
                 animator.SetBool("Open", false);
         }
         //CheckColor();
         centrPoint.color = currentColor;
-        Debug.DrawLine(transform.position, target.position, currentColor);
+        Debug.DrawLine(transform.position, PlayerMovement.targetPlayer.position, currentColor);
 
         if (!targetInPlace)
             return;

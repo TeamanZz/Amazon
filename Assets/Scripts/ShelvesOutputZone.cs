@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShelvesOutputZone : MonoBehaviour
 {
     [Header("Passive settings")]
-    public Transform target;
+    //public Transform target;
     public float distanceToCentr = 0.5f;
 
     [Header("Active settings")]
@@ -90,7 +90,7 @@ public class ShelvesOutputZone : MonoBehaviour
 
         // Debug.Log("Coloring");
     }
-    public void Update()
+    public void FixedUpdate()
     {
         if (zoneIsActive == false)
             return;
@@ -99,7 +99,7 @@ public class ShelvesOutputZone : MonoBehaviour
             ChangeZoneSendType(parentShelvesController.currentDeployType);
 
 
-        float distance = Vector3.Distance(transform.position, target.position);
+        float distance = Vector3.Distance(transform.position, PlayerMovement.targetPlayer.position);
         if (distance < distanceToCentr)
             targetInPlace = true;
         else
@@ -107,7 +107,7 @@ public class ShelvesOutputZone : MonoBehaviour
 
         //CheckColor();
         centrPoint.color = currentColor;
-        Debug.DrawLine(transform.position, target.position, currentColor);
+        Debug.DrawLine(transform.position, PlayerMovement.targetPlayer.position, currentColor);
 
         if (!targetInPlace)
             return;
@@ -170,7 +170,7 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 parentShelvesController.outputItemsCount += 1;
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.RedBox, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.RedBox);
                 parentShelvesController.SendItem(StorageItem.ItemType.RedBox, itemPrefab);
                 break;
 
@@ -179,7 +179,7 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 parentShelvesController.outputItemsCount += 1;
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.BlueBox, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.BlueBox);
                 parentShelvesController.SendItem(StorageItem.ItemType.BlueBox, itemPrefab);
                 break;
 
@@ -188,7 +188,7 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 parentShelvesController.outputItemsCount += 1;
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.GreenBox, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.GreenBox);
                 parentShelvesController.SendItem(StorageItem.ItemType.GreenBox, itemPrefab);
                 break;
 
@@ -197,14 +197,14 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 parentShelvesController.outputItemsCount += 1;
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.YellowBox, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.YellowBox);
                 parentShelvesController.SendItem(StorageItem.ItemType.YellowBox, itemPrefab);
                 break;
 
             case StorageItem.ItemType.NoType:
                 parentShelvesController.outputItemsCount += 1;
                 parentShelvesController.SendItem(CharacterBag.characterBag.storageItems[0].currentItemType, itemPrefab);
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.NoType, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.NoType);
                 break;
 
             case StorageItem.ItemType.DirtyBarrel:
@@ -212,7 +212,7 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 parentShelvesController.outputItemsCount += 1;
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.DirtyBarrel, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.DirtyBarrel);
                 parentShelvesController.SendItem(StorageItem.ItemType.DirtyBarrel, itemPrefab);
                 break;
 
@@ -221,14 +221,14 @@ public class ShelvesOutputZone : MonoBehaviour
                     break;
 
                 parentShelvesController.outputItemsCount += 1;
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.CleanBarrel, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.CleanBarrel);
                 parentShelvesController.SendItem(StorageItem.ItemType.CleanBarrel, itemPrefab);
                 break;
 
             case StorageItem.ItemType.AllBarel:
                 parentShelvesController.outputItemsCount += 1;
                 parentShelvesController.SendItem(CharacterBag.characterBag.storageItems[0].currentItemType, itemPrefab);
-                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.NoType, this);
+                CharacterBag.characterBag.SendToShelveItem(StorageItem.ItemType.NoType);
                 break;
         }
     }

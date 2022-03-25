@@ -7,6 +7,7 @@ public class StorageItem : MonoBehaviour
 {
     [Header("Settings")]
     public Renderer currentRender;
+    public Renderer preItemRender;
     public float defaultScale = 1f;
 
     [Header("View settings")]
@@ -21,12 +22,19 @@ public class StorageItem : MonoBehaviour
         GreenBox,
         YellowBox,
         NoType,
+        //
+        PreRedBox,
+        PreBlueBox,
+        PreGreenBox,
+        //
         DirtyBarrel,
         CleanBarrel,
         AllBarel
     }
 
     public GameObject itemBox;
+    public GameObject preItemBox;
+    //
     public GameObject dirtyBarrel;
     public GameObject clearBarrel;
 
@@ -38,6 +46,7 @@ public class StorageItem : MonoBehaviour
             dirtyBarrel.SetActive(false);
             clearBarrel.SetActive(false);
             itemBox.SetActive(true);
+            preItemBox.SetActive(false);
         }
         else
             itemBox.SetActive(false);
@@ -47,35 +56,66 @@ public class StorageItem : MonoBehaviour
             case ItemType.RedBox:
                 //currentRender.material.color = Color.red;
                 currentRender.material = materials[0];
+                itemBox.SetActive(true);
+                preItemBox.SetActive(false);
                 break;
 
             case ItemType.BlueBox:
                 //currentRender.material.color = Color.blue;
                 currentRender.material = materials[1];
+                itemBox.SetActive(true);
+                preItemBox.SetActive(false);
                 break;
 
             case ItemType.GreenBox:
                 //currentRender.material.color = Color.green;
                 currentRender.material = materials[2];
+                itemBox.SetActive(true);
+                preItemBox.SetActive(false);
                 break;
 
             case ItemType.YellowBox:
                 //currentRender.material.color = Color.yellow;
                 currentRender.material = materials[3];
+                itemBox.SetActive(true);
+                preItemBox.SetActive(false);
                 break;
 
             case ItemType.DirtyBarrel:
                 dirtyBarrel.SetActive(true);
                 clearBarrel.SetActive(false);
-                
+                preItemBox.SetActive(false);
+
                 itemBox.SetActive(false);
                 break;
 
             case ItemType.CleanBarrel:
                 dirtyBarrel.SetActive(false);
                 clearBarrel.SetActive(true);
+                preItemBox.SetActive(false);
 
                 itemBox.SetActive(false);
+                break;
+
+            case ItemType.PreRedBox:
+                //currentRender.material.color = Color.yellow;
+                preItemRender.material = materials[4];
+                itemBox.SetActive(false);
+                preItemBox.SetActive(true);
+                break;
+
+            case ItemType.PreBlueBox:
+                //currentRender.material.color = Color.yellow;
+                preItemRender.material = materials[5];
+                itemBox.SetActive(false);
+                preItemBox.SetActive(true);
+                break;
+
+            case ItemType.PreGreenBox:
+                //currentRender.material.color = Color.yellow;
+                preItemRender.material = materials[6];
+                itemBox.SetActive(false);
+                preItemBox.SetActive(true);
                 break;
         }
 

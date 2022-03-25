@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public static Transform targetPlayer;
     [SerializeField] private float speed;
     [SerializeField] private FloatingJoystick floatingJoystick;
 
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        targetPlayer = this.transform;
     }
 
     public void FixedUpdate()

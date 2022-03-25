@@ -42,7 +42,7 @@ public class CharacterBag : MonoBehaviour
         if (storageItems.Count == 0)
             currentBagType = BagItemType.noType;
 
-        if(currentBagType == BagItemType.noType)
+        if (currentBagType == BagItemType.noType)
         {
             if (type == StorageItem.ItemType.CleanBarrel || type == StorageItem.ItemType.DirtyBarrel)
                 currentBagType = BagItemType.barrel;
@@ -51,7 +51,7 @@ public class CharacterBag : MonoBehaviour
         }
 
         Debug.Log("Go to switch");
-        switch(currentBagType)
+        switch (currentBagType)
         {
             case BagItemType.box:
                 if (type == StorageItem.ItemType.CleanBarrel || type == StorageItem.ItemType.DirtyBarrel)
@@ -61,7 +61,7 @@ public class CharacterBag : MonoBehaviour
                 }
                 if (storageItems.Count >= maximumBoxLoadCapacity)
                     return;
-            break;
+                break;
 
             case BagItemType.barrel:
                 if (type != StorageItem.ItemType.CleanBarrel && type != StorageItem.ItemType.DirtyBarrel)
@@ -169,7 +169,7 @@ public class CharacterBag : MonoBehaviour
         }
         PositionsCheck();
     }
-    public void SendToShelveItem(StorageItem.ItemType type, ShelvesOutputZone outputZone)
+    public void SendToShelveItem(StorageItem.ItemType type)
     {
         if (storageItems.Count <= 0)
             return;
@@ -274,7 +274,48 @@ public class CharacterBag : MonoBehaviour
 
         PositionsCheck();
     }
+    public void SendPackerItem(BoxPackerZone outputZone)
+    {
+        if (storageItems.Count < 1)
+            return;
 
+        if (outputZone.parentProcessingStation.itemOutTypeStack.Count >= outputZone.parentProcessingStation.maximumOutputCount || outputZone.parentProcessingStation.itemInTypeStack.Count >= outputZone.parentProcessingStation.maximumInputCount)
+            return;
+
+        StorageItem removItem = null;
+
+        foreach (var item in storageItems)
+        {
+            if (item.currentItemType == StorageItem.ItemType.PreRedBox
+            || item.currentItemType == StorageItem.ItemType.PreGreenBox
+            || item.currentItemType == StorageItem.ItemType.PreBlueBox)
+            {
+
+                Debug.Log(item.currentItemType);
+                removItem = item;
+                break;
+            }
+        }
+
+        Debug.Log("Remove");
+        if (removItem != null)
+        {
+            storageItems.Remove(removItem);
+            removItem.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InOutBack);
+            Destroy(removItem.gameObject, 0.3f);
+            if (storageItems.Count == 0)
+            {
+                animator.SetBool("IsCarrying", false);
+            }
+            else
+            {
+                animator.SetBool("IsCarrying", true);
+            }
+            outputZone.parentProcessingStation.SendToPacker(removItem.currentItemType);
+        }
+
+        PositionsCheck();
+    }
     public void SendBarrelToProcessing(BarrelProcessingOutputZone barrelProcessingOutputZone)
     {
         Debug.Log("In Bag");
