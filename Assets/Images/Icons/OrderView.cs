@@ -26,7 +26,7 @@ public class OrderView : MonoBehaviour
                 break;
 
             case StorageItem.ItemType.BlueBox:
-                iconImage.sprite = iconsSprites[1];
+                iconImage.sprite = iconsSprites[3];
                 break;
 
             case StorageItem.ItemType.GreenBox:
@@ -34,6 +34,10 @@ public class OrderView : MonoBehaviour
                 break;
 
             case StorageItem.ItemType.YellowBox:
+                iconImage.sprite = iconsSprites[3];
+                break;
+
+            case StorageItem.ItemType.PreBlueBox:
                 iconImage.sprite = iconsSprites[3];
                 break;
 

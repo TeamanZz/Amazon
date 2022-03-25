@@ -29,9 +29,11 @@ public class BoxPacker : MonoBehaviour
     public int maximumInputCount = 10;
     public int maximumOutputCount = 10;
 
+    public Material conveyorMat;
+
     public List<StorageItem.ItemType> itemInTypeStack = new List<StorageItem.ItemType>();
     public List<StorageItem.ItemType> itemOutTypeStack = new List<StorageItem.ItemType>();
-    
+
     public void Awake()
     {
         zoneIsActive = true;
@@ -70,6 +72,8 @@ public class BoxPacker : MonoBehaviour
 
     public void FixedUpdate()
     {
+        conveyorMat.mainTextureOffset = new Vector2(conveyorMat.mainTextureOffset.x, conveyorMat.mainTextureOffset.y - 0.025f);
+
         if (zoneIsActive == false)
             return;
 
@@ -81,7 +85,7 @@ public class BoxPacker : MonoBehaviour
             fillingImage.fillAmount = 0;
             currentTime = reloadTime;
 
-            switch(itemInTypeStack[0])
+            switch (itemInTypeStack[0])
             {
                 case StorageItem.ItemType.PreRedBox:
                     //if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.PreRedBox))

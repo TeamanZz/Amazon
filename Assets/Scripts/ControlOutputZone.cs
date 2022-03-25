@@ -76,7 +76,7 @@ public class ControlOutputZone : MonoBehaviour
                     break;
 
                 case StorageItem.ItemType.BlueBox:
-                    currentColor = new Color(0.5364009f, 0.7325992f, 0.9245283f);
+                    currentColor = Color.yellow;
                     break;
 
                 case StorageItem.ItemType.GreenBox:
@@ -102,8 +102,11 @@ public class ControlOutputZone : MonoBehaviour
                 case StorageItem.ItemType.AllBarel:
                     currentColor = Color.white;
                     break;
-            }
 
+                case StorageItem.ItemType.PreBlueBox:
+                    currentColor = Color.yellow;
+                    break;
+            }
     }
 
     public void Update()
@@ -115,7 +118,7 @@ public class ControlOutputZone : MonoBehaviour
         if (distance < distanceToCentr)
         {
             targetInPlace = true;
-            
+
             if (animator != null)
                 animator.SetBool("Open", true);
         }

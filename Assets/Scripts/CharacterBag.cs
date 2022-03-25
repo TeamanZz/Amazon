@@ -95,7 +95,7 @@ public class CharacterBag : MonoBehaviour
         StartCoroutine(IEEnableRendererOnStart(currentItem));
 
         currentItem.transform.localPosition = point; //+ new Vector3(0, 5, 0);
-        currentItem.transform.eulerAngles = Vector3.zero;
+        currentItem.transform.eulerAngles = new Vector3(0, -90, 0);
         itemFlying.FlyTo(new Vector3(0, (storageItems.Count - 1) * itemScaleInBag, 0), currentItem.transform.eulerAngles, type);
 
         PositionsCheck();

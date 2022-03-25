@@ -66,7 +66,7 @@ public class DeliveryMachine : MonoBehaviour
         deliveryData = null;
 
         deliveryData = new CurrentDeliveryData();
-        deliveryData.orderType = StorageItem.ItemType.YellowBox;
+        deliveryData.orderType = StorageItem.ItemType.BlueBox;
         deliveryData.correctAmount = 1;
         deliveryData.currentAmount = 0;
 
