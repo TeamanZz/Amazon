@@ -37,10 +37,6 @@ public class OrderView : MonoBehaviour
                 iconImage.sprite = iconsSprites[3];
                 break;
 
-            case StorageItem.ItemType.PreBlueBox:
-                iconImage.sprite = iconsSprites[3];
-                break;
-
             case StorageItem.ItemType.DirtyBarrel:
                 iconImage.sprite = iconsSprites[4];
                 break;
@@ -49,6 +45,9 @@ public class OrderView : MonoBehaviour
                 iconImage.sprite = iconsSprites[5];
                 break;
 
+            case StorageItem.ItemType.DefaultBox:
+                iconImage.sprite = iconsSprites[3];
+                break;
         }
     }
 

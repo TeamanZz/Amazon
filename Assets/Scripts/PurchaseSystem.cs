@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class PurchaseSystem : MonoBehaviour
 {
@@ -20,14 +21,15 @@ public class PurchaseSystem : MonoBehaviour
 
     public Transform target;
     public float distanceToCentr = 1.25f;
-
+    public ParticleSystem particle;
     [ContextMenu("Awake")]
     public void Awake()
     {
         constructionZone.SetActive(false);
-        zone.SetActive(false);
-        // purchasedObject.SetActive(false);
-        zoneIsActive = false;
+        // zone.SetActive(false);
+        // if (currentObjectPrice == 250)
+        //     purchasedObject.SetActive(false);
+        zoneIsActive = true;
     }
 
     [ContextMenu("Initialization")]
@@ -54,7 +56,7 @@ public class PurchaseSystem : MonoBehaviour
             targetInPlace = false;
         }
 
-        if (MoneyController.moneyController.currentMoney > currentObjectPrice && targetInPlace == true)
+        if (targetInPlace == true)
         {
             BuyAnObject();
         }
@@ -68,8 +70,15 @@ public class PurchaseSystem : MonoBehaviour
         constructionZone.SetActive(false);
         zone.SetActive(false);
         purchasedObject.SetActive(true);
-
+        purchasedObject.transform.DOLocalMoveY(0, 1f).SetEase(Ease.InOutBack);
+        StartCoroutine(IESpawnParticles());
         enabled = false;
+    }
+
+    private IEnumerator IESpawnParticles()
+    {
+        yield return new WaitForSeconds(0.8f);
+        particle.Play();
     }
 
     public void SendCurrentState()

@@ -76,7 +76,7 @@ public class ControlOutputZone : MonoBehaviour
                     break;
 
                 case StorageItem.ItemType.BlueBox:
-                    currentColor = Color.yellow;
+                    currentColor = Color.white;
                     break;
 
                 case StorageItem.ItemType.GreenBox:
@@ -103,8 +103,8 @@ public class ControlOutputZone : MonoBehaviour
                     currentColor = Color.white;
                     break;
 
-                case StorageItem.ItemType.PreBlueBox:
-                    currentColor = Color.yellow;
+                case StorageItem.ItemType.DefaultBox:
+                    currentColor = Color.white;
                     break;
             }
     }
@@ -167,32 +167,9 @@ public class ControlOutputZone : MonoBehaviour
             case StorageItem.ItemType.NoType:
                 type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
                 break;
-
-            case StorageItem.ItemType.RedBox:
-                type = StorageItem.ItemType.RedBox;
-                break;
-
-            case StorageItem.ItemType.BlueBox:
-                type = StorageItem.ItemType.BlueBox;
-                break;
-
-            case StorageItem.ItemType.GreenBox:
-                type = StorageItem.ItemType.GreenBox;
-                break;
-
-            case StorageItem.ItemType.YellowBox:
-                type = StorageItem.ItemType.YellowBox;
-                break;
-
-            case StorageItem.ItemType.DirtyBarrel:
-                type = StorageItem.ItemType.DirtyBarrel;
-                break;
-
-            case StorageItem.ItemType.CleanBarrel:
-                type = StorageItem.ItemType.CleanBarrel;
-                break;
         }
 
+        type = currentDeployType;
         //StorageItem.ItemType type = (StorageItem.ItemType)Random.Range(0, StorageItem.itemTypeCount);
         Debug.Log(type);
         CharacterBag.characterBag.ReceivingItem(itemPrefab, type);
@@ -203,37 +180,7 @@ public class ControlOutputZone : MonoBehaviour
         if (CharacterBag.characterBag == null)
             return;
 
-        switch (currentDeployType)
-        {
-            case StorageItem.ItemType.RedBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.RedBox, this);
-                break;
-
-            case StorageItem.ItemType.BlueBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.BlueBox, this);
-                break;
-
-            case StorageItem.ItemType.GreenBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.GreenBox, this);
-                break;
-
-            case StorageItem.ItemType.YellowBox:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.YellowBox, this);
-                break;
-
-            case StorageItem.ItemType.NoType:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.NoType, this);
-                break;
-
-            case StorageItem.ItemType.DirtyBarrel:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.DirtyBarrel, this);
-                break;
-
-            case StorageItem.ItemType.CleanBarrel:
-                CharacterBag.characterBag.SendItem(StorageItem.ItemType.CleanBarrel, this);
-                break;
-        }
-
+        CharacterBag.characterBag.SendItem(currentDeployType, this);
     }
 
     public void ShipmentProcessing()

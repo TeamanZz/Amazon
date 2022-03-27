@@ -31,6 +31,8 @@ public class BoxPacker : MonoBehaviour
 
     public Material conveyorMat;
 
+    public ParticleSystem particle;
+
     public List<StorageItem.ItemType> itemInTypeStack = new List<StorageItem.ItemType>();
     public List<StorageItem.ItemType> itemOutTypeStack = new List<StorageItem.ItemType>();
 
@@ -84,28 +86,21 @@ public class BoxPacker : MonoBehaviour
         {
             fillingImage.fillAmount = 0;
             currentTime = reloadTime;
-
+            particle.Play();
             switch (itemInTypeStack[0])
             {
-                case StorageItem.ItemType.PreRedBox:
-                    //if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.PreRedBox))
-                    //    break;
-
-                    itemOutTypeStack.Add(StorageItem.ItemType.RedBox);
-                    break;
-
-                case StorageItem.ItemType.PreBlueBox:
+                case StorageItem.ItemType.Photocamera:
                     //if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.PreBlueBox))
                     //    break;
 
-                    itemOutTypeStack.Add(StorageItem.ItemType.BlueBox);
+                    itemOutTypeStack.Add(StorageItem.ItemType.DefaultBox);
                     break;
 
-                case StorageItem.ItemType.PreGreenBox:
+                case StorageItem.ItemType.Tv:
                     //if (!CharacterBag.characterBag.FindType(StorageItem.ItemType.PreGreenBox))
                     //    break;
 
-                    itemOutTypeStack.Add(StorageItem.ItemType.GreenBox);
+                    itemOutTypeStack.Add(StorageItem.ItemType.DefaultBox);
                     break;
             }
 

@@ -286,11 +286,9 @@ public class CharacterBag : MonoBehaviour
 
         foreach (var item in storageItems)
         {
-            if (item.currentItemType == StorageItem.ItemType.PreRedBox
-            || item.currentItemType == StorageItem.ItemType.PreGreenBox
-            || item.currentItemType == StorageItem.ItemType.PreBlueBox)
+            if (item.currentItemType == StorageItem.ItemType.Tv
+            || item.currentItemType == StorageItem.ItemType.Photocamera)
             {
-
                 Debug.Log(item.currentItemType);
                 removItem = item;
                 break;

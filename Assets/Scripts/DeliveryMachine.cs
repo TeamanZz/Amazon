@@ -33,6 +33,7 @@ public class DeliveryMachine : MonoBehaviour
     public Transform carTransform;
 
     public float carSpeed = 5f;
+    public ControlOutputZone zone;
 
     public Transform leftDoor;
     public Transform rightDoor;
@@ -66,7 +67,7 @@ public class DeliveryMachine : MonoBehaviour
         deliveryData = null;
 
         deliveryData = new CurrentDeliveryData();
-        deliveryData.orderType = StorageItem.ItemType.BlueBox;
+        deliveryData.orderType = StorageItem.ItemType.DefaultBox;
         deliveryData.correctAmount = 1;
         deliveryData.currentAmount = 0;
 
@@ -93,6 +94,8 @@ public class DeliveryMachine : MonoBehaviour
 
         ViewUI();
         OrderViewController.viewController.AddPanel(this, deliveryData.orderType);
+
+        zone.gameObject.SetActive(true);
     }
 
     public void ClosedDoor()
@@ -102,6 +105,8 @@ public class DeliveryMachine : MonoBehaviour
         //  0 -> -150
         Vector3 rightVector = new Vector3(0, 0, 0);
         rightDoor.DOLocalRotate(rightVector, 0.8f).SetEase(Ease.OutBack);
+
+        zone.gameObject.SetActive(false);
     }
 
     public void ViewUI()
@@ -133,6 +138,7 @@ public class DeliveryMachine : MonoBehaviour
         orderAmountText.text = "";
         deliveryData = null;
         particles[0].SetActive(true);
+        particles[1].SetActive(true);
         ClosedDoor();
         OrderViewController.viewController.RemovePanel(orderViewChild);
 

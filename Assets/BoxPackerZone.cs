@@ -109,7 +109,7 @@ public class BoxPackerZone : MonoBehaviour
                     break;
 
                 case ZoneState.Send:
-                    if (parentProcessingStation.itemInTypeStack.Count >=  parentProcessingStation.maximumInputCount)
+                    if (parentProcessingStation.itemInTypeStack.Count >= parentProcessingStation.maximumInputCount)
                         break;
 
                     SendItem();
