@@ -48,6 +48,14 @@ public class OrderView : MonoBehaviour
             case StorageItem.ItemType.DefaultBox:
                 iconImage.sprite = iconsSprites[3];
                 break;
+
+            case StorageItem.ItemType.Tv:
+                iconImage.sprite = iconsSprites[6];
+                break;
+
+            case StorageItem.ItemType.Photocamera:
+                iconImage.sprite = iconsSprites[7];
+                break;
         }
     }
 

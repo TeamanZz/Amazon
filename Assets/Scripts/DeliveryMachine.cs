@@ -67,8 +67,8 @@ public class DeliveryMachine : MonoBehaviour
         deliveryData = null;
 
         deliveryData = new CurrentDeliveryData();
-        deliveryData.orderType = StorageItem.ItemType.DefaultBox;
-        deliveryData.correctAmount = 1;
+        deliveryData.orderType = (StorageItem.ItemType)UnityEngine.Random.Range(5, 8);
+        deliveryData.correctAmount = UnityEngine.Random.Range(1, 7);
         deliveryData.currentAmount = 0;
 
         outputZone.ChangeZoneSendType(deliveryData.orderType);
@@ -144,5 +144,13 @@ public class DeliveryMachine : MonoBehaviour
 
         carTransform.DOMoveX(endPoint.position.x, carSpeed).SetEase(Ease.InOutBack);
         carTransform.DOShakeRotation(2, strength: 5, 10);
+
+        StartCoroutine(IEInvokeCar());
+    }
+
+    private IEnumerator IEInvokeCar()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(8, 10));
+        MoveToGates();
     }
 }

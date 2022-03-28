@@ -27,12 +27,12 @@ public class StorageItem : MonoBehaviour
         //
         Tv,
         Photocamera,
+        DefaultBox,
         //
         DirtyBarrel,
         CleanBarrel,
-        AllBarel,
+        AllBarel
 
-        DefaultBox
     }
 
     public GameObject itemBox;

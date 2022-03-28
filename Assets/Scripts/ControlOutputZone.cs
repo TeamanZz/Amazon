@@ -64,49 +64,8 @@ public class ControlOutputZone : MonoBehaviour
 
     public void ColoringThisZone()
     {
-        if (currentZoneState == ZoneState.Receiving)
-        {
-            currentColor = Color.white;
-        }
-        else
-            switch (currentDeployType)
-            {
-                case StorageItem.ItemType.RedBox:
-                    currentColor = new Color(0.8207547f, 0.2284176f, 0.2801296f);
-                    break;
+        currentColor = Color.white;
 
-                case StorageItem.ItemType.BlueBox:
-                    currentColor = Color.white;
-                    break;
-
-                case StorageItem.ItemType.GreenBox:
-                    currentColor = new Color(0.114142f, 0.8962264f, 0.4832793f);
-                    break;
-
-                case StorageItem.ItemType.YellowBox:
-                    currentColor = Color.yellow;
-                    break;
-
-                case StorageItem.ItemType.NoType:
-                    currentColor = Color.white;
-                    break;
-
-                case StorageItem.ItemType.DirtyBarrel:
-                    currentColor = Color.grey;
-                    break;
-
-                case StorageItem.ItemType.CleanBarrel:
-                    currentColor = Color.blue;
-                    break;
-
-                case StorageItem.ItemType.AllBarel:
-                    currentColor = Color.white;
-                    break;
-
-                case StorageItem.ItemType.DefaultBox:
-                    currentColor = Color.white;
-                    break;
-            }
     }
 
     public void Update()
